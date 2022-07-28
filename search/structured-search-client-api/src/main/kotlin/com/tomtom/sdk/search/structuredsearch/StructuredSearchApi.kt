@@ -27,7 +27,7 @@ interface StructuredSearchApi : AutoCloseable {
     /**
      * Start a new search session to find the full address hierarchically with preferred language.
      * The language can be changed later by [StructuredSearchSession.setLocale].
-     *
+     * AAAAAAAAAAAAAAAAAAa
      * @param locale The [Locale] object, e.g. [Locale.UK] or [Locale.JAPAN].
      * @return A [StructuredSearchSession] object that could be used to perform structured search.
      */
