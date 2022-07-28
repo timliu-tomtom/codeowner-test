@@ -1,0 +1,2473 @@
+// Signature format: 4.0
+package com.tomtom.sdk.search.client {
+
+  public interface SearchApi extends com.tomtom.sdk.common.Disposable {
+    method public com.tomtom.sdk.common.Result<com.tomtom.sdk.search.client.additionaldata.AdditionalDataSearchResponse,com.tomtom.sdk.search.client.additionaldata.AdditionalDataSearchError> additionalDataSearch(com.tomtom.sdk.search.client.additionaldata.AdditionalDataSearchOptions additionalDataSearchOptions);
+    method public com.tomtom.sdk.common.Cancellable additionalDataSearch(com.tomtom.sdk.search.client.additionaldata.AdditionalDataSearchOptions additionalDataSearchOptions, com.tomtom.sdk.search.client.additionaldata.AdditionalDataSearchCallback additionalDataSearchCallback);
+    method public com.tomtom.sdk.common.Result<com.tomtom.sdk.search.client.alongroute.AlongRouteSearchResponse,com.tomtom.sdk.search.client.alongroute.AlongRouteSearchError> alongRouteSearch(com.tomtom.sdk.search.client.alongroute.AlongRouteSearchOptions alongRouteSearchOptions);
+    method public com.tomtom.sdk.common.Cancellable alongRouteSearch(com.tomtom.sdk.search.client.alongroute.AlongRouteSearchOptions alongRouteSearchOptions, com.tomtom.sdk.search.client.alongroute.AlongRouteSearchCallback alongRouteSearchCallback);
+    method public com.tomtom.sdk.common.Result<com.tomtom.sdk.search.client.autocomplete.AutocompleteSearchResponse,com.tomtom.sdk.search.client.autocomplete.AutocompleteSearchError> autocompleteSearch(com.tomtom.sdk.search.client.autocomplete.AutocompleteSearchOptions autocompleteSearchOptions);
+    method public com.tomtom.sdk.common.Cancellable autocompleteSearch(com.tomtom.sdk.search.client.autocomplete.AutocompleteSearchOptions autocompleteSearchOptions, com.tomtom.sdk.search.client.autocomplete.AutocompleteSearchCallback autocompleteSearchCallback);
+    method public com.tomtom.sdk.common.Result<com.tomtom.sdk.search.client.ev.EvChargingStationsAvailabilityResponse,com.tomtom.sdk.search.client.ev.EvChargingStationsAvailabilityError> evChargingStationSearch(com.tomtom.sdk.search.client.ev.EvChargingStationsAvailabilityOptions evChargingStationsAvailabilityOptions);
+    method public com.tomtom.sdk.common.Cancellable evChargingStationSearch(com.tomtom.sdk.search.client.ev.EvChargingStationsAvailabilityOptions evChargingStationsAvailabilityOptions, com.tomtom.sdk.search.client.ev.EvChargingStationsAvailabilityCallback evChargingStationsAvailabilityCallback);
+    method public com.tomtom.sdk.common.Result<com.tomtom.sdk.search.client.fuzzy.FuzzySearchResponse,com.tomtom.sdk.search.client.fuzzy.FuzzySearchError> fuzzySearch(com.tomtom.sdk.search.client.fuzzy.FuzzySearchOptions fuzzySearchOptions);
+    method public com.tomtom.sdk.common.Cancellable fuzzySearch(com.tomtom.sdk.search.client.fuzzy.FuzzySearchOptions fuzzySearchOptions, com.tomtom.sdk.search.client.fuzzy.FuzzySearchCallback fuzzySearchCallback);
+    method public com.tomtom.sdk.common.Result<com.tomtom.sdk.search.client.geometry.GeometrySearchResponse,com.tomtom.sdk.search.client.geometry.GeometrySearchError> geometrySearch(com.tomtom.sdk.search.client.geometry.GeometrySearchOptions geometrySearchOptions);
+    method public com.tomtom.sdk.common.Cancellable geometrySearch(com.tomtom.sdk.search.client.geometry.GeometrySearchOptions geometrySearchOptions, com.tomtom.sdk.search.client.geometry.GeometrySearchCallback geometrySearchCallback);
+    method public com.tomtom.sdk.common.Result<com.tomtom.sdk.search.client.poicategories.PoiCategoriesSearchResponse,com.tomtom.sdk.search.client.poicategories.PoiCategoriesSearchError> poiCategoriesSearch(com.tomtom.sdk.search.client.poicategories.PoiCategoriesSearchOptions poiCategoriesSearchOptions);
+    method public com.tomtom.sdk.common.Cancellable poiCategoriesSearch(com.tomtom.sdk.search.client.poicategories.PoiCategoriesSearchOptions poiCategoriesSearchOptions, com.tomtom.sdk.search.client.poicategories.PoiCategoriesSearchCallback poiCategoriesSearchCallback);
+  }
+
+  public class SearchError {
+    method public final String getMessage();
+    property public final String message;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.additionaldata {
+
+  public final class AdditionalDataResult {
+    ctor public AdditionalDataResult(String providerId, String? error, com.tomtom.sdk.common.geojson.GeoJsonObject? geometryData);
+    method public String component1();
+    method public String? component2();
+    method public com.tomtom.sdk.common.geojson.GeoJsonObject? component3();
+    method public com.tomtom.sdk.search.client.additionaldata.AdditionalDataResult copy(String providerId, String? error, com.tomtom.sdk.common.geojson.GeoJsonObject? geometryData);
+    method public String? getError();
+    method public com.tomtom.sdk.common.geojson.GeoJsonObject? getGeometryData();
+    method public String getProviderId();
+    property public final String? error;
+    property public final com.tomtom.sdk.common.geojson.GeoJsonObject? geometryData;
+    property public final String providerId;
+  }
+
+  public interface AdditionalDataSearchCallback extends com.tomtom.sdk.common.Callback<com.tomtom.sdk.search.client.additionaldata.AdditionalDataSearchResponse,com.tomtom.sdk.search.client.additionaldata.AdditionalDataSearchError> {
+  }
+
+  public final class AdditionalDataSearchError extends com.tomtom.sdk.search.client.SearchError {
+    ctor public AdditionalDataSearchError(optional String message);
+  }
+
+  public final class AdditionalDataSearchOptions {
+    ctor public AdditionalDataSearchOptions(java.util.List<java.lang.String> geometries, optional Integer? geometriesZoom);
+    method public java.util.List<java.lang.String> component1();
+    method public Integer? component2();
+    method public com.tomtom.sdk.search.client.additionaldata.AdditionalDataSearchOptions copy(java.util.List<java.lang.String> geometries, Integer? geometriesZoom);
+    method public java.util.List<java.lang.String> getGeometries();
+    method public Integer? getGeometriesZoom();
+    property public final java.util.List<java.lang.String> geometries;
+    property public final Integer? geometriesZoom;
+  }
+
+  public final class AdditionalDataSearchResponse {
+    ctor public AdditionalDataSearchResponse(java.util.List<com.tomtom.sdk.search.client.additionaldata.AdditionalDataResult> additionalData);
+    method public java.util.List<com.tomtom.sdk.search.client.additionaldata.AdditionalDataResult> component1();
+    method public com.tomtom.sdk.search.client.additionaldata.AdditionalDataSearchResponse copy(java.util.List<com.tomtom.sdk.search.client.additionaldata.AdditionalDataResult> additionalData);
+    method public java.util.List<com.tomtom.sdk.search.client.additionaldata.AdditionalDataResult> getAdditionalData();
+    property public final java.util.List<com.tomtom.sdk.search.client.additionaldata.AdditionalDataResult> additionalData;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.alongroute {
+
+  public interface AlongRouteSearchCallback extends com.tomtom.sdk.common.Callback<com.tomtom.sdk.search.client.alongroute.AlongRouteSearchResponse,com.tomtom.sdk.search.client.alongroute.AlongRouteSearchError> {
+  }
+
+  public final class AlongRouteSearchError extends com.tomtom.sdk.search.client.SearchError {
+    ctor public AlongRouteSearchError(optional String message);
+  }
+
+  public final class AlongRouteSearchOptions {
+    ctor public AlongRouteSearchOptions(String query, java.util.List<com.tomtom.sdk.common.location.GeoCoordinate> route, com.tomtom.sdk.common.time.Duration maxDetourTime, optional Boolean? typeAhead, optional Integer? limit, optional java.util.Set<java.lang.Long> categorySet, optional java.util.Set<java.lang.String> brandSet, optional java.util.Set<java.lang.String> connectorSet, optional Double? minPowerKw, optional Double? maxPowerKw, optional java.util.Set<com.tomtom.sdk.search.client.model.FuelType> fuelSet, optional String? geopoliticalView, optional Boolean? detourOffset, optional com.tomtom.sdk.search.client.model.sorting.SortBy? sortBy, optional com.tomtom.sdk.search.client.model.time.OpeningHoursMode? openingHours, optional com.tomtom.sdk.search.client.model.information.SpreadingMode? spreadingMode, optional java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodes, optional com.tomtom.sdk.search.client.model.time.TimeZoneType? timeZone, optional com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? relatedPois);
+    method public String component1();
+    method public Double? component10();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.FuelType> component11();
+    method public String? component12();
+    method public Boolean? component13();
+    method public com.tomtom.sdk.search.client.model.sorting.SortBy? component14();
+    method public com.tomtom.sdk.search.client.model.time.OpeningHoursMode? component15-MAdes7Y();
+    method public com.tomtom.sdk.search.client.model.information.SpreadingMode? component16();
+    method public java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> component17();
+    method public com.tomtom.sdk.search.client.model.time.TimeZoneType? component18();
+    method public com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? component19();
+    method public java.util.List<com.tomtom.sdk.common.location.GeoCoordinate> component2();
+    method public com.tomtom.sdk.common.time.Duration component3();
+    method public Boolean? component4();
+    method public Integer? component5();
+    method public java.util.Set<java.lang.Long> component6();
+    method public java.util.Set<java.lang.String> component7();
+    method public java.util.Set<java.lang.String> component8();
+    method public Double? component9();
+    method public com.tomtom.sdk.search.client.alongroute.AlongRouteSearchOptions copy-J3CFGWA(String query, java.util.List<com.tomtom.sdk.common.location.GeoCoordinate> route, com.tomtom.sdk.common.time.Duration maxDetourTime, Boolean? typeAhead, Integer? limit, java.util.Set<java.lang.Long> categorySet, java.util.Set<java.lang.String> brandSet, java.util.Set<java.lang.String> connectorSet, Double? minPowerKw, Double? maxPowerKw, java.util.Set<com.tomtom.sdk.search.client.model.FuelType> fuelSet, String? geopoliticalView, Boolean? detourOffset, com.tomtom.sdk.search.client.model.sorting.SortBy? sortBy, com.tomtom.sdk.search.client.model.time.OpeningHoursMode? openingHours, com.tomtom.sdk.search.client.model.information.SpreadingMode? spreadingMode, java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodes, com.tomtom.sdk.search.client.model.time.TimeZoneType? timeZone, com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? relatedPois);
+    method public java.util.Set<java.lang.String> getBrandSet();
+    method public java.util.Set<java.lang.Long> getCategorySet();
+    method public java.util.Set<java.lang.String> getConnectorSet();
+    method public Boolean? getDetourOffset();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.FuelType> getFuelSet();
+    method public String? getGeopoliticalView();
+    method public Integer? getLimit();
+    method public java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> getMapCodes();
+    method public com.tomtom.sdk.common.time.Duration getMaxDetourTime();
+    method public Double? getMaxPowerKw();
+    method public Double? getMinPowerKw();
+    method public com.tomtom.sdk.search.client.model.time.OpeningHoursMode? getOpeningHours();
+    method public String getQuery();
+    method public com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? getRelatedPois();
+    method public java.util.List<com.tomtom.sdk.common.location.GeoCoordinate> getRoute();
+    method public com.tomtom.sdk.search.client.model.sorting.SortBy? getSortBy();
+    method public com.tomtom.sdk.search.client.model.information.SpreadingMode? getSpreadingMode();
+    method public com.tomtom.sdk.search.client.model.time.TimeZoneType? getTimeZone();
+    method public Boolean? getTypeAhead();
+    property public final java.util.Set<java.lang.String> brandSet;
+    property public final java.util.Set<java.lang.Long> categorySet;
+    property public final java.util.Set<java.lang.String> connectorSet;
+    property public final Boolean? detourOffset;
+    property public final java.util.Set<com.tomtom.sdk.search.client.model.FuelType> fuelSet;
+    property public final String? geopoliticalView;
+    property public final Integer? limit;
+    property public final java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodes;
+    property public final com.tomtom.sdk.common.time.Duration maxDetourTime;
+    property public final Double? maxPowerKw;
+    property public final Double? minPowerKw;
+    property public final com.tomtom.sdk.search.client.model.time.OpeningHoursMode? openingHours;
+    property public final String query;
+    property public final com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? relatedPois;
+    property public final java.util.List<com.tomtom.sdk.common.location.GeoCoordinate> route;
+    property public final com.tomtom.sdk.search.client.model.sorting.SortBy? sortBy;
+    property public final com.tomtom.sdk.search.client.model.information.SpreadingMode? spreadingMode;
+    property public final com.tomtom.sdk.search.client.model.time.TimeZoneType? timeZone;
+    property public final Boolean? typeAhead;
+  }
+
+  public final class AlongRouteSearchResponse {
+    ctor public AlongRouteSearchResponse(com.tomtom.sdk.search.client.model.summary.AlongRouteSummary summary, java.util.List<com.tomtom.sdk.search.client.model.result.AlongRouteResult> results);
+    method public com.tomtom.sdk.search.client.model.summary.AlongRouteSummary component1();
+    method public java.util.List<com.tomtom.sdk.search.client.model.result.AlongRouteResult> component2();
+    method public com.tomtom.sdk.search.client.alongroute.AlongRouteSearchResponse copy(com.tomtom.sdk.search.client.model.summary.AlongRouteSummary summary, java.util.List<com.tomtom.sdk.search.client.model.result.AlongRouteResult> results);
+    method public java.util.List<com.tomtom.sdk.search.client.model.result.AlongRouteResult> getResults();
+    method public com.tomtom.sdk.search.client.model.summary.AlongRouteSummary getSummary();
+    property public final java.util.List<com.tomtom.sdk.search.client.model.result.AlongRouteResult> results;
+    property public final com.tomtom.sdk.search.client.model.summary.AlongRouteSummary summary;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.autocomplete {
+
+  public interface AutocompleteSearchCallback extends com.tomtom.sdk.common.Callback<com.tomtom.sdk.search.client.autocomplete.AutocompleteSearchResponse,com.tomtom.sdk.search.client.autocomplete.AutocompleteSearchError> {
+  }
+
+  public final class AutocompleteSearchError extends com.tomtom.sdk.search.client.SearchError {
+    ctor public AutocompleteSearchError(optional String message);
+  }
+
+  public final class AutocompleteSearchOptions {
+    ctor public AutocompleteSearchOptions(String query, String language, optional Integer? limit, optional com.tomtom.sdk.common.location.GeoCoordinate? position, optional Integer? radius, optional java.util.Set<java.lang.String> countryCodes, optional java.util.Set<java.lang.String> resultTypes);
+    method public String component1();
+    method public String component2();
+    method public Integer? component3();
+    method public com.tomtom.sdk.common.location.GeoCoordinate? component4();
+    method public Integer? component5();
+    method public java.util.Set<java.lang.String> component6();
+    method public java.util.Set<java.lang.String> component7();
+    method public com.tomtom.sdk.search.client.autocomplete.AutocompleteSearchOptions copy(String query, String language, Integer? limit, com.tomtom.sdk.common.location.GeoCoordinate? position, Integer? radius, java.util.Set<java.lang.String> countryCodes, java.util.Set<java.lang.String> resultTypes);
+    method public java.util.Set<java.lang.String> getCountryCodes();
+    method public String getLanguage();
+    method public Integer? getLimit();
+    method public com.tomtom.sdk.common.location.GeoCoordinate? getPosition();
+    method public String getQuery();
+    method public Integer? getRadius();
+    method public java.util.Set<java.lang.String> getResultTypes();
+    property public final java.util.Set<java.lang.String> countryCodes;
+    property public final String language;
+    property public final Integer? limit;
+    property public final com.tomtom.sdk.common.location.GeoCoordinate? position;
+    property public final String query;
+    property public final Integer? radius;
+    property public final java.util.Set<java.lang.String> resultTypes;
+    field public static final com.tomtom.sdk.search.client.autocomplete.AutocompleteSearchOptions.Companion Companion;
+    field public static final String RESULT_TYPE_BRAND = "brand";
+    field public static final String RESULT_TYPE_CATEGORY = "category";
+  }
+
+  public static final class AutocompleteSearchOptions.Companion {
+  }
+
+  public final class AutocompleteSearchResponse {
+    ctor public AutocompleteSearchResponse(com.tomtom.sdk.search.client.model.summary.AutocompleteSummary context, optional java.util.List<com.tomtom.sdk.search.client.model.result.AutocompleteResults> results);
+    method public com.tomtom.sdk.search.client.model.summary.AutocompleteSummary component1();
+    method public java.util.List<com.tomtom.sdk.search.client.model.result.AutocompleteResults> component2();
+    method public com.tomtom.sdk.search.client.autocomplete.AutocompleteSearchResponse copy(com.tomtom.sdk.search.client.model.summary.AutocompleteSummary context, java.util.List<com.tomtom.sdk.search.client.model.result.AutocompleteResults> results);
+    method public com.tomtom.sdk.search.client.model.summary.AutocompleteSummary getContext();
+    method public java.util.List<com.tomtom.sdk.search.client.model.result.AutocompleteResults> getResults();
+    property public final com.tomtom.sdk.search.client.model.summary.AutocompleteSummary context;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.result.AutocompleteResults> results;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.ev {
+
+  public interface EvChargingStationsAvailabilityCallback extends com.tomtom.sdk.common.Callback<com.tomtom.sdk.search.client.ev.EvChargingStationsAvailabilityResponse,com.tomtom.sdk.search.client.ev.EvChargingStationsAvailabilityError> {
+  }
+
+  public final class EvChargingStationsAvailabilityError extends com.tomtom.sdk.search.client.SearchError {
+    ctor public EvChargingStationsAvailabilityError(optional String message);
+  }
+
+  public final class EvChargingStationsAvailabilityOptions {
+    ctor public EvChargingStationsAvailabilityOptions(String chargingStationId, optional java.util.Set<java.lang.String> connectorTypeSet, optional Double? minPowerKw, optional Double? maxPowerKw);
+    method public String component1();
+    method public java.util.Set<java.lang.String> component2();
+    method public Double? component3();
+    method public Double? component4();
+    method public com.tomtom.sdk.search.client.ev.EvChargingStationsAvailabilityOptions copy(String chargingStationId, java.util.Set<java.lang.String> connectorTypeSet, Double? minPowerKw, Double? maxPowerKw);
+    method public String getChargingStationId();
+    method public java.util.Set<java.lang.String> getConnectorTypeSet();
+    method public Double? getMaxPowerKw();
+    method public Double? getMinPowerKw();
+    property public final String chargingStationId;
+    property public final java.util.Set<java.lang.String> connectorTypeSet;
+    property public final Double? maxPowerKw;
+    property public final Double? minPowerKw;
+  }
+
+  public final class EvChargingStationsAvailabilityResponse {
+    ctor public EvChargingStationsAvailabilityResponse(String chargingStationId, java.util.List<com.tomtom.sdk.search.client.model.ev.Connector> connectors);
+    method public String component1();
+    method public java.util.List<com.tomtom.sdk.search.client.model.ev.Connector> component2();
+    method public com.tomtom.sdk.search.client.ev.EvChargingStationsAvailabilityResponse copy(String chargingStationId, java.util.List<com.tomtom.sdk.search.client.model.ev.Connector> connectors);
+    method public String getChargingStationId();
+    method public java.util.List<com.tomtom.sdk.search.client.model.ev.Connector> getConnectors();
+    property public final String chargingStationId;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.ev.Connector> connectors;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.fuzzy {
+
+  public interface FuzzySearchCallback extends com.tomtom.sdk.common.Callback<com.tomtom.sdk.search.client.fuzzy.FuzzySearchResponse,com.tomtom.sdk.search.client.fuzzy.FuzzySearchError> {
+  }
+
+  public final class FuzzySearchError extends com.tomtom.sdk.search.client.SearchError {
+    ctor public FuzzySearchError(optional String message);
+  }
+
+  public final class FuzzySearchOptions {
+    ctor public FuzzySearchOptions(String query, optional Boolean? typeAhead, optional @IntRange(from=1, to=100) int limit, optional Integer? offset, optional java.util.Set<java.lang.String> countrySet, optional com.tomtom.sdk.common.location.GeoCoordinate? position, optional Integer? radius, optional com.tomtom.sdk.common.location.GeoBoundingBox? boundingBox, optional String? language, optional java.util.List<? extends com.tomtom.sdk.search.client.model.IndexType> extendedPostalCodes, optional Integer? minFuzzyLevel, optional Integer? maxFuzzyLevel, optional java.util.Set<? extends com.tomtom.sdk.search.client.model.IndexType> idx, optional java.util.Set<java.lang.Long> categorySet, optional java.util.Set<java.lang.String> brandSet, optional java.util.Set<java.lang.String> connectorSet, optional Double? minPowerKW, optional Double? maxPowerKW, optional java.util.Set<com.tomtom.sdk.search.client.model.FuelType> fuelSet, optional String? geopoliticalView, optional com.tomtom.sdk.search.client.model.time.OpeningHoursMode? openingHours, optional com.tomtom.sdk.search.client.model.time.TimeZoneType? timeZone, optional java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodes, optional com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? relatedPois, optional java.util.Set<? extends com.tomtom.sdk.search.client.model.information.EntityType> entityTypeSet, optional Boolean? category);
+    method public String component1();
+    method public java.util.List<com.tomtom.sdk.search.client.model.IndexType> component10();
+    method public Integer? component11();
+    method public Integer? component12();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.IndexType> component13();
+    method public java.util.Set<java.lang.Long> component14();
+    method public java.util.Set<java.lang.String> component15();
+    method public java.util.Set<java.lang.String> component16();
+    method public Double? component17();
+    method public Double? component18();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.FuelType> component19();
+    method public Boolean? component2();
+    method public String? component20();
+    method public com.tomtom.sdk.search.client.model.time.OpeningHoursMode? component21-MAdes7Y();
+    method public com.tomtom.sdk.search.client.model.time.TimeZoneType? component22();
+    method public java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> component23();
+    method public com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? component24();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.information.EntityType> component25();
+    method public Boolean? component26();
+    method public int component3();
+    method public Integer? component4();
+    method public java.util.Set<java.lang.String> component5();
+    method public com.tomtom.sdk.common.location.GeoCoordinate? component6();
+    method public Integer? component7();
+    method public com.tomtom.sdk.common.location.GeoBoundingBox? component8();
+    method public String? component9();
+    method public com.tomtom.sdk.search.client.fuzzy.FuzzySearchOptions copy-H-BZ3RE(String query, Boolean? typeAhead, @IntRange(from=1L, to=100L) int limit, Integer? offset, java.util.Set<java.lang.String> countrySet, com.tomtom.sdk.common.location.GeoCoordinate? position, Integer? radius, com.tomtom.sdk.common.location.GeoBoundingBox? boundingBox, String? language, java.util.List<? extends com.tomtom.sdk.search.client.model.IndexType> extendedPostalCodes, Integer? minFuzzyLevel, Integer? maxFuzzyLevel, java.util.Set<? extends com.tomtom.sdk.search.client.model.IndexType> idx, java.util.Set<java.lang.Long> categorySet, java.util.Set<java.lang.String> brandSet, java.util.Set<java.lang.String> connectorSet, Double? minPowerKW, Double? maxPowerKW, java.util.Set<com.tomtom.sdk.search.client.model.FuelType> fuelSet, String? geopoliticalView, com.tomtom.sdk.search.client.model.time.OpeningHoursMode? openingHours, com.tomtom.sdk.search.client.model.time.TimeZoneType? timeZone, java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodes, com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? relatedPois, java.util.Set<? extends com.tomtom.sdk.search.client.model.information.EntityType> entityTypeSet, Boolean? category);
+    method public com.tomtom.sdk.common.location.GeoBoundingBox? getBoundingBox();
+    method public java.util.Set<java.lang.String> getBrandSet();
+    method public Boolean? getCategory();
+    method public java.util.Set<java.lang.Long> getCategorySet();
+    method public java.util.Set<java.lang.String> getConnectorSet();
+    method public java.util.Set<java.lang.String> getCountrySet();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.information.EntityType> getEntityTypeSet();
+    method public java.util.List<com.tomtom.sdk.search.client.model.IndexType> getExtendedPostalCodes();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.FuelType> getFuelSet();
+    method public String? getGeopoliticalView();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.IndexType> getIdx();
+    method public String? getLanguage();
+    method public int getLimit();
+    method public java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> getMapCodes();
+    method public Integer? getMaxFuzzyLevel();
+    method public Double? getMaxPowerKW();
+    method public Integer? getMinFuzzyLevel();
+    method public Double? getMinPowerKW();
+    method public Integer? getOffset();
+    method public com.tomtom.sdk.search.client.model.time.OpeningHoursMode? getOpeningHours();
+    method public com.tomtom.sdk.common.location.GeoCoordinate? getPosition();
+    method public String getQuery();
+    method public Integer? getRadius();
+    method public com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? getRelatedPois();
+    method public com.tomtom.sdk.search.client.model.time.TimeZoneType? getTimeZone();
+    method public Boolean? getTypeAhead();
+    property public final com.tomtom.sdk.common.location.GeoBoundingBox? boundingBox;
+    property public final java.util.Set<java.lang.String> brandSet;
+    property public final Boolean? category;
+    property public final java.util.Set<java.lang.Long> categorySet;
+    property public final java.util.Set<java.lang.String> connectorSet;
+    property public final java.util.Set<java.lang.String> countrySet;
+    property public final java.util.Set<com.tomtom.sdk.search.client.model.information.EntityType> entityTypeSet;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.IndexType> extendedPostalCodes;
+    property public final java.util.Set<com.tomtom.sdk.search.client.model.FuelType> fuelSet;
+    property public final String? geopoliticalView;
+    property public final java.util.Set<com.tomtom.sdk.search.client.model.IndexType> idx;
+    property public final String? language;
+    property public final int limit;
+    property public final java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodes;
+    property public final Integer? maxFuzzyLevel;
+    property public final Double? maxPowerKW;
+    property public final Integer? minFuzzyLevel;
+    property public final Double? minPowerKW;
+    property public final Integer? offset;
+    property public final com.tomtom.sdk.search.client.model.time.OpeningHoursMode? openingHours;
+    property public final com.tomtom.sdk.common.location.GeoCoordinate? position;
+    property public final String query;
+    property public final Integer? radius;
+    property public final com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? relatedPois;
+    property public final com.tomtom.sdk.search.client.model.time.TimeZoneType? timeZone;
+    property public final Boolean? typeAhead;
+  }
+
+  public final class FuzzySearchResponse {
+    ctor public FuzzySearchResponse(com.tomtom.sdk.search.client.model.summary.SearchRequestSummary summary, java.util.List<com.tomtom.sdk.search.client.model.result.SearchResult> results);
+    method public com.tomtom.sdk.search.client.model.summary.SearchRequestSummary component1();
+    method public java.util.List<com.tomtom.sdk.search.client.model.result.SearchResult> component2();
+    method public com.tomtom.sdk.search.client.fuzzy.FuzzySearchResponse copy(com.tomtom.sdk.search.client.model.summary.SearchRequestSummary summary, java.util.List<com.tomtom.sdk.search.client.model.result.SearchResult> results);
+    method public java.util.List<com.tomtom.sdk.search.client.model.result.SearchResult> getResults();
+    method public com.tomtom.sdk.search.client.model.summary.SearchRequestSummary getSummary();
+    property public final java.util.List<com.tomtom.sdk.search.client.model.result.SearchResult> results;
+    property public final com.tomtom.sdk.search.client.model.summary.SearchRequestSummary summary;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.geometry {
+
+  public final class CircleGeometry implements com.tomtom.sdk.search.client.geometry.Geometry {
+    ctor public CircleGeometry(com.tomtom.sdk.common.location.GeoCoordinate position, int radiusInMeters);
+    method public com.tomtom.sdk.common.location.GeoCoordinate component1();
+    method public int component2();
+    method public com.tomtom.sdk.search.client.geometry.CircleGeometry copy(com.tomtom.sdk.common.location.GeoCoordinate position, int radiusInMeters);
+    method public com.tomtom.sdk.common.location.GeoCoordinate getPosition();
+    method public int getRadiusInMeters();
+    property public final com.tomtom.sdk.common.location.GeoCoordinate position;
+    property public final int radiusInMeters;
+  }
+
+  public sealed interface Geometry {
+  }
+
+  public interface GeometrySearchCallback extends com.tomtom.sdk.common.Callback<com.tomtom.sdk.search.client.geometry.GeometrySearchResponse,com.tomtom.sdk.search.client.geometry.GeometrySearchError> {
+  }
+
+  public final class GeometrySearchError extends com.tomtom.sdk.search.client.SearchError {
+    ctor public GeometrySearchError(optional String message);
+  }
+
+  public final class GeometrySearchOptions {
+    ctor public GeometrySearchOptions(String query, java.util.List<? extends com.tomtom.sdk.search.client.geometry.Geometry> geometries, optional Integer? limit, optional String? language, java.util.List<? extends com.tomtom.sdk.search.client.model.IndexType> extendedPostalCodes, java.util.Set<? extends com.tomtom.sdk.search.client.model.IndexType> idx, java.util.Set<java.lang.Long> categorySet, java.util.Set<java.lang.String> brandSet, java.util.Set<java.lang.String> connectorSet, optional Double? minPowerKW, optional Double? maxPowerKW, java.util.Set<com.tomtom.sdk.search.client.model.FuelType> fuelSet, optional String? geopoliticalView, optional com.tomtom.sdk.search.client.model.time.OpeningHoursMode? openingHours, optional com.tomtom.sdk.search.client.model.time.TimeZoneType? timeZone, java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodes, optional com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? relatedPois, java.util.Set<? extends com.tomtom.sdk.search.client.model.information.EntityType> entityTypeSet);
+    method public String component1();
+    method public Double? component10();
+    method public Double? component11();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.FuelType> component12();
+    method public String? component13();
+    method public com.tomtom.sdk.search.client.model.time.OpeningHoursMode? component14-MAdes7Y();
+    method public com.tomtom.sdk.search.client.model.time.TimeZoneType? component15();
+    method public java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> component16();
+    method public com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? component17();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.information.EntityType> component18();
+    method public java.util.List<com.tomtom.sdk.search.client.geometry.Geometry> component2();
+    method public Integer? component3();
+    method public String? component4();
+    method public java.util.List<com.tomtom.sdk.search.client.model.IndexType> component5();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.IndexType> component6();
+    method public java.util.Set<java.lang.Long> component7();
+    method public java.util.Set<java.lang.String> component8();
+    method public java.util.Set<java.lang.String> component9();
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions copy-VNSSfcw(String query, java.util.List<? extends com.tomtom.sdk.search.client.geometry.Geometry> geometries, Integer? limit, String? language, java.util.List<? extends com.tomtom.sdk.search.client.model.IndexType> extendedPostalCodes, java.util.Set<? extends com.tomtom.sdk.search.client.model.IndexType> idx, java.util.Set<java.lang.Long> categorySet, java.util.Set<java.lang.String> brandSet, java.util.Set<java.lang.String> connectorSet, Double? minPowerKW, Double? maxPowerKW, java.util.Set<com.tomtom.sdk.search.client.model.FuelType> fuelSet, String? geopoliticalView, com.tomtom.sdk.search.client.model.time.OpeningHoursMode? openingHours, com.tomtom.sdk.search.client.model.time.TimeZoneType? timeZone, java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodes, com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? relatedPois, java.util.Set<? extends com.tomtom.sdk.search.client.model.information.EntityType> entityTypeSet);
+    method public java.util.Set<java.lang.String> getBrandSet();
+    method public java.util.Set<java.lang.Long> getCategorySet();
+    method public java.util.Set<java.lang.String> getConnectorSet();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.information.EntityType> getEntityTypeSet();
+    method public java.util.List<com.tomtom.sdk.search.client.model.IndexType> getExtendedPostalCodes();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.FuelType> getFuelSet();
+    method public java.util.List<com.tomtom.sdk.search.client.geometry.Geometry> getGeometries();
+    method public String? getGeopoliticalView();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.IndexType> getIdx();
+    method public String? getLanguage();
+    method public Integer? getLimit();
+    method public java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> getMapCodes();
+    method public Double? getMaxPowerKW();
+    method public Double? getMinPowerKW();
+    method public com.tomtom.sdk.search.client.model.time.OpeningHoursMode? getOpeningHours();
+    method public String getQuery();
+    method public com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? getRelatedPois();
+    method public com.tomtom.sdk.search.client.model.time.TimeZoneType? getTimeZone();
+    property public final java.util.Set<java.lang.String> brandSet;
+    property public final java.util.Set<java.lang.Long> categorySet;
+    property public final java.util.Set<java.lang.String> connectorSet;
+    property public final java.util.Set<com.tomtom.sdk.search.client.model.information.EntityType> entityTypeSet;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.IndexType> extendedPostalCodes;
+    property public final java.util.Set<com.tomtom.sdk.search.client.model.FuelType> fuelSet;
+    property public final java.util.List<com.tomtom.sdk.search.client.geometry.Geometry> geometries;
+    property public final String? geopoliticalView;
+    property public final java.util.Set<com.tomtom.sdk.search.client.model.IndexType> idx;
+    property public final String? language;
+    property public final Integer? limit;
+    property public final java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodes;
+    property public final Double? maxPowerKW;
+    property public final Double? minPowerKW;
+    property public final com.tomtom.sdk.search.client.model.time.OpeningHoursMode? openingHours;
+    property public final String query;
+    property public final com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType? relatedPois;
+    property public final com.tomtom.sdk.search.client.model.time.TimeZoneType? timeZone;
+  }
+
+  public static final class GeometrySearchOptions.Builder {
+    ctor public GeometrySearchOptions.Builder(String query, java.util.List<? extends com.tomtom.sdk.search.client.geometry.Geometry> geometries);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder brandSet(java.util.Set<java.lang.String> brandSet);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions build();
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder categorySet(java.util.Set<java.lang.Long> categorySet);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder connectorSet(java.util.Set<java.lang.String> connectorSet);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder entityTypeSet(java.util.Set<? extends com.tomtom.sdk.search.client.model.information.EntityType> entityTypeSet);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder extendedPostalCodes(java.util.List<? extends com.tomtom.sdk.search.client.model.IndexType> extendedPostalCodes);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder fuelSet(java.util.Set<com.tomtom.sdk.search.client.model.FuelType> fuelSet);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder geometries(java.util.List<? extends com.tomtom.sdk.search.client.geometry.Geometry> geometries);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder geopoliticalView(String geopoliticalView);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder idxSet(java.util.Set<? extends com.tomtom.sdk.search.client.model.IndexType> idxSet);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder language(String language);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder limit(int limit);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder mapCodes(java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodes);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder maxPowerKW(double maxPowerKW);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder minPowerKW(double minPowerKW);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder openingHours(int openingHours);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder query(String query);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder relatedPois(com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType relatedPois);
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchOptions.Builder timeZone(com.tomtom.sdk.search.client.model.time.TimeZoneType timeZone);
+  }
+
+  public final class GeometrySearchResponse {
+    ctor public GeometrySearchResponse(com.tomtom.sdk.search.client.model.summary.SearchRequestSummary summary, java.util.List<com.tomtom.sdk.search.client.model.result.SearchResult> results);
+    method public com.tomtom.sdk.search.client.model.summary.SearchRequestSummary component1();
+    method public java.util.List<com.tomtom.sdk.search.client.model.result.SearchResult> component2();
+    method public com.tomtom.sdk.search.client.geometry.GeometrySearchResponse copy(com.tomtom.sdk.search.client.model.summary.SearchRequestSummary summary, java.util.List<com.tomtom.sdk.search.client.model.result.SearchResult> results);
+    method public java.util.List<com.tomtom.sdk.search.client.model.result.SearchResult> getResults();
+    method public com.tomtom.sdk.search.client.model.summary.SearchRequestSummary getSummary();
+    property public final java.util.List<com.tomtom.sdk.search.client.model.result.SearchResult> results;
+    property public final com.tomtom.sdk.search.client.model.summary.SearchRequestSummary summary;
+  }
+
+  public final class PolygonGeometry implements com.tomtom.sdk.search.client.geometry.Geometry {
+    ctor public PolygonGeometry(java.util.List<com.tomtom.sdk.common.location.GeoCoordinate> vertices);
+    method public java.util.List<com.tomtom.sdk.common.location.GeoCoordinate> component1();
+    method public com.tomtom.sdk.search.client.geometry.PolygonGeometry copy(java.util.List<com.tomtom.sdk.common.location.GeoCoordinate> vertices);
+    method public java.util.List<com.tomtom.sdk.common.location.GeoCoordinate> getVertices();
+    property public final java.util.List<com.tomtom.sdk.common.location.GeoCoordinate> vertices;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.model {
+
+  @kotlin.jvm.JvmInline public final value class FuelType {
+    method public int getType();
+    property public final int type;
+    field public static final com.tomtom.sdk.search.client.model.FuelType.Companion Companion;
+  }
+
+  public static final class FuelType.Companion {
+    method public int getAdBlue();
+    method public int getBioDiesel();
+    method public int getCng();
+    method public int getCommercialVehicleDiesel();
+    method public int getDiesel();
+    method public int getE85();
+    method public int getHydrogen();
+    method public int getLng();
+    method public int getLpg();
+    method public int getPetrol();
+    property public final int AdBlue;
+    property public final int BioDiesel;
+    property public final int Cng;
+    property public final int CommercialVehicleDiesel;
+    property public final int Diesel;
+    property public final int E85;
+    property public final int Hydrogen;
+    property public final int Lng;
+    property public final int Lpg;
+    property public final int Petrol;
+  }
+
+  public enum IndexType {
+    enum_constant public static final com.tomtom.sdk.search.client.model.IndexType ADDRESS_RANGES;
+    enum_constant public static final com.tomtom.sdk.search.client.model.IndexType CROSS_STREET;
+    enum_constant public static final com.tomtom.sdk.search.client.model.IndexType GEOGRAPHIES;
+    enum_constant public static final com.tomtom.sdk.search.client.model.IndexType POI;
+    enum_constant public static final com.tomtom.sdk.search.client.model.IndexType POINT_ADDRESSES;
+    enum_constant public static final com.tomtom.sdk.search.client.model.IndexType STREETS;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.model.ev {
+
+  public final class AvailabilityDetails {
+    ctor public AvailabilityDetails(int available, int occupied, int reserved, int unknown, int outOfService);
+    method public int component1();
+    method public int component2();
+    method public int component3();
+    method public int component4();
+    method public int component5();
+    method public com.tomtom.sdk.search.client.model.ev.AvailabilityDetails copy(int available, int occupied, int reserved, int unknown, int outOfService);
+    method public int getAvailable();
+    method public int getOccupied();
+    method public int getOutOfService();
+    method public int getReserved();
+    method public int getUnknown();
+    property public final int available;
+    property public final int occupied;
+    property public final int outOfService;
+    property public final int reserved;
+    property public final int unknown;
+  }
+
+  public final class ChargingPark {
+    ctor public ChargingPark(optional java.util.List<com.tomtom.sdk.search.client.model.ev.ConnectorDetails> connectors);
+    method public java.util.List<com.tomtom.sdk.search.client.model.ev.ConnectorDetails> component1();
+    method public com.tomtom.sdk.search.client.model.ev.ChargingPark copy(java.util.List<com.tomtom.sdk.search.client.model.ev.ConnectorDetails> connectors);
+    method public java.util.List<com.tomtom.sdk.search.client.model.ev.ConnectorDetails> getConnectors();
+    property public final java.util.List<com.tomtom.sdk.search.client.model.ev.ConnectorDetails> connectors;
+  }
+
+  public final class Connector {
+    ctor public Connector(String connectorType, int total, com.tomtom.sdk.search.client.model.ev.ConnectorAvailability availability);
+    method public String component1();
+    method public int component2();
+    method public com.tomtom.sdk.search.client.model.ev.ConnectorAvailability component3();
+    method public com.tomtom.sdk.search.client.model.ev.Connector copy(String connectorType, int total, com.tomtom.sdk.search.client.model.ev.ConnectorAvailability availability);
+    method public com.tomtom.sdk.search.client.model.ev.ConnectorAvailability getAvailability();
+    method public String getConnectorType();
+    method public int getTotal();
+    property public final com.tomtom.sdk.search.client.model.ev.ConnectorAvailability availability;
+    property public final String connectorType;
+    property public final int total;
+  }
+
+  public final class ConnectorAvailability {
+    ctor public ConnectorAvailability(com.tomtom.sdk.search.client.model.ev.AvailabilityDetails current, java.util.List<com.tomtom.sdk.search.client.model.ev.PowerKwAvailabilityDetails> perPowerLevel);
+    method public com.tomtom.sdk.search.client.model.ev.AvailabilityDetails component1();
+    method public java.util.List<com.tomtom.sdk.search.client.model.ev.PowerKwAvailabilityDetails> component2();
+    method public com.tomtom.sdk.search.client.model.ev.ConnectorAvailability copy(com.tomtom.sdk.search.client.model.ev.AvailabilityDetails current, java.util.List<com.tomtom.sdk.search.client.model.ev.PowerKwAvailabilityDetails> perPowerLevel);
+    method public com.tomtom.sdk.search.client.model.ev.AvailabilityDetails getCurrent();
+    method public java.util.List<com.tomtom.sdk.search.client.model.ev.PowerKwAvailabilityDetails> getPerPowerLevel();
+    property public final com.tomtom.sdk.search.client.model.ev.AvailabilityDetails current;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.ev.PowerKwAvailabilityDetails> perPowerLevel;
+  }
+
+  public final class ConnectorDetails {
+    ctor public ConnectorDetails(String connectorType, Double? ratedPowerKw, Integer? currentA, optional String currentType, Integer? voltageV);
+    method public String component1();
+    method public Double? component2();
+    method public Integer? component3();
+    method public String component4();
+    method public Integer? component5();
+    method public com.tomtom.sdk.search.client.model.ev.ConnectorDetails copy(String connectorType, Double? ratedPowerKw, Integer? currentA, String currentType, Integer? voltageV);
+    method public String getConnectorType();
+    method public Integer? getCurrentA();
+    method public String getCurrentType();
+    method public Double? getRatedPowerKw();
+    method public Integer? getVoltageV();
+    property public final String connectorType;
+    property public final Integer? currentA;
+    property public final String currentType;
+    property public final Double? ratedPowerKw;
+    property public final Integer? voltageV;
+  }
+
+  public final class PowerKwAvailabilityDetails {
+    ctor public PowerKwAvailabilityDetails(double powerKw, int available, int occupied, int reserved, int unknown, int outOfService);
+    method public double component1();
+    method public int component2();
+    method public int component3();
+    method public int component4();
+    method public int component5();
+    method public int component6();
+    method public com.tomtom.sdk.search.client.model.ev.PowerKwAvailabilityDetails copy(double powerKw, int available, int occupied, int reserved, int unknown, int outOfService);
+    method public int getAvailable();
+    method public int getOccupied();
+    method public int getOutOfService();
+    method public double getPowerKw();
+    method public int getReserved();
+    method public int getUnknown();
+    property public final int available;
+    property public final int occupied;
+    property public final int outOfService;
+    property public final double powerKw;
+    property public final int reserved;
+    property public final int unknown;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.model.information {
+
+  public final class AdditionalDataSources {
+    ctor public AdditionalDataSources(com.tomtom.sdk.search.client.model.information.ChargingAvailabilityDataSource? chargingAvailability, com.tomtom.sdk.search.client.model.information.GeometryDataSource? geometry);
+    method public com.tomtom.sdk.search.client.model.information.ChargingAvailabilityDataSource? component1();
+    method public com.tomtom.sdk.search.client.model.information.GeometryDataSource? component2();
+    method public com.tomtom.sdk.search.client.model.information.AdditionalDataSources copy(com.tomtom.sdk.search.client.model.information.ChargingAvailabilityDataSource? chargingAvailability, com.tomtom.sdk.search.client.model.information.GeometryDataSource? geometry);
+    method public com.tomtom.sdk.search.client.model.information.ChargingAvailabilityDataSource? getChargingAvailability();
+    method public com.tomtom.sdk.search.client.model.information.GeometryDataSource? getGeometry();
+    property public final com.tomtom.sdk.search.client.model.information.ChargingAvailabilityDataSource? chargingAvailability;
+    property public final com.tomtom.sdk.search.client.model.information.GeometryDataSource? geometry;
+  }
+
+  public final class ChargingAvailabilityDataSource {
+    ctor public ChargingAvailabilityDataSource(String id);
+    method public String component1();
+    method public com.tomtom.sdk.search.client.model.information.ChargingAvailabilityDataSource copy(String id);
+    method public String getId();
+    property public final String id;
+  }
+
+  public enum EntityType {
+    enum_constant public static final com.tomtom.sdk.search.client.model.information.EntityType COUNTRY;
+    enum_constant public static final com.tomtom.sdk.search.client.model.information.EntityType COUNTRY_SECONDARY_SUBDIVISION;
+    enum_constant public static final com.tomtom.sdk.search.client.model.information.EntityType COUNTRY_SUBDIVISION;
+    enum_constant public static final com.tomtom.sdk.search.client.model.information.EntityType COUNTRY_TERTIARY_SUBDIVISION;
+    enum_constant public static final com.tomtom.sdk.search.client.model.information.EntityType MUNICIPALITY;
+    enum_constant public static final com.tomtom.sdk.search.client.model.information.EntityType MUNICIPALITY_SUBDIVISION;
+    enum_constant public static final com.tomtom.sdk.search.client.model.information.EntityType NEIGHBOURHOOD;
+    enum_constant public static final com.tomtom.sdk.search.client.model.information.EntityType POSTAL_CODE_AREA;
+  }
+
+  public final class EntryPoint {
+    ctor public EntryPoint(com.tomtom.sdk.search.client.model.information.EntryType type, com.tomtom.sdk.common.location.GeoCoordinate position);
+    method public com.tomtom.sdk.search.client.model.information.EntryType component1();
+    method public com.tomtom.sdk.common.location.GeoCoordinate component2();
+    method public com.tomtom.sdk.search.client.model.information.EntryPoint copy(com.tomtom.sdk.search.client.model.information.EntryType type, com.tomtom.sdk.common.location.GeoCoordinate position);
+    method public com.tomtom.sdk.common.location.GeoCoordinate getPosition();
+    method public com.tomtom.sdk.search.client.model.information.EntryType getType();
+    property public final com.tomtom.sdk.common.location.GeoCoordinate position;
+    property public final com.tomtom.sdk.search.client.model.information.EntryType type;
+  }
+
+  public enum EntryType {
+    enum_constant public static final com.tomtom.sdk.search.client.model.information.EntryType MAIN;
+    enum_constant public static final com.tomtom.sdk.search.client.model.information.EntryType MINOR;
+    enum_constant public static final com.tomtom.sdk.search.client.model.information.EntryType UNDEFINED;
+  }
+
+  public final class GeometryDataSource {
+    ctor public GeometryDataSource(String id);
+    method public String component1();
+    method public com.tomtom.sdk.search.client.model.information.GeometryDataSource copy(String id);
+    method public String getId();
+    property public final String id;
+  }
+
+  public enum SpreadingMode {
+    enum_constant public static final com.tomtom.sdk.search.client.model.information.SpreadingMode AUTO;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.model.location {
+
+  public final class Address {
+    ctor public Address(optional String streetNumber, optional String streetName, optional String municipalitySubdivision, optional String municipality, optional String countrySecondarySubdivision, optional String countryTertiarySubdivision, optional String countrySubdivision, optional String postalCode, optional String extendedPostalCode, optional String countryCode, optional String country, optional String countryCodeISO3, optional String freeformAddress, optional String countrySubdivisionName, optional String localName);
+    method public String component1();
+    method public String component10();
+    method public String component11();
+    method public String component12();
+    method public String component13();
+    method public String component14();
+    method public String component15();
+    method public String component2();
+    method public String component3();
+    method public String component4();
+    method public String component5();
+    method public String component6();
+    method public String component7();
+    method public String component8();
+    method public String component9();
+    method public com.tomtom.sdk.search.client.model.location.Address copy(String streetNumber, String streetName, String municipalitySubdivision, String municipality, String countrySecondarySubdivision, String countryTertiarySubdivision, String countrySubdivision, String postalCode, String extendedPostalCode, String countryCode, String country, String countryCodeISO3, String freeformAddress, String countrySubdivisionName, String localName);
+    method public String getCountry();
+    method public String getCountryCode();
+    method public String getCountryCodeISO3();
+    method public String getCountrySecondarySubdivision();
+    method public String getCountrySubdivision();
+    method public String getCountrySubdivisionName();
+    method public String getCountryTertiarySubdivision();
+    method public String getExtendedPostalCode();
+    method public String getFreeformAddress();
+    method public String getLocalName();
+    method public String getMunicipality();
+    method public String getMunicipalitySubdivision();
+    method public String getPostalCode();
+    method public String getStreetName();
+    method public String getStreetNumber();
+    property public final String country;
+    property public final String countryCode;
+    property public final String countryCodeISO3;
+    property public final String countrySecondarySubdivision;
+    property public final String countrySubdivision;
+    property public final String countrySubdivisionName;
+    property public final String countryTertiarySubdivision;
+    property public final String extendedPostalCode;
+    property public final String freeformAddress;
+    property public final String localName;
+    property public final String municipality;
+    property public final String municipalitySubdivision;
+    property public final String postalCode;
+    property public final String streetName;
+    property public final String streetNumber;
+  }
+
+  public final class AddressRanges {
+    ctor public AddressRanges(optional String rangeLeft, optional String rangeRight, com.tomtom.sdk.common.location.GeoCoordinate? from, com.tomtom.sdk.common.location.GeoCoordinate? to);
+    method public String component1();
+    method public String component2();
+    method public com.tomtom.sdk.common.location.GeoCoordinate? component3();
+    method public com.tomtom.sdk.common.location.GeoCoordinate? component4();
+    method public com.tomtom.sdk.search.client.model.location.AddressRanges copy(String rangeLeft, String rangeRight, com.tomtom.sdk.common.location.GeoCoordinate? from, com.tomtom.sdk.common.location.GeoCoordinate? to);
+    method public com.tomtom.sdk.common.location.GeoCoordinate? getFrom();
+    method public String getRangeLeft();
+    method public String getRangeRight();
+    method public com.tomtom.sdk.common.location.GeoCoordinate? getTo();
+    property public final com.tomtom.sdk.common.location.GeoCoordinate? from;
+    property public final String rangeLeft;
+    property public final String rangeRight;
+    property public final com.tomtom.sdk.common.location.GeoCoordinate? to;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.model.match {
+
+  public final class Match {
+    ctor public Match(int offset, int length);
+    method public int component1();
+    method public int component2();
+    method public com.tomtom.sdk.search.client.model.match.Match copy(int offset, int length);
+    method public int getLength();
+    method public int getOffset();
+    property public final int length;
+    property public final int offset;
+  }
+
+  public final class Matches {
+    ctor public Matches(optional java.util.List<com.tomtom.sdk.search.client.model.match.Match> inputQuery);
+    method public java.util.List<com.tomtom.sdk.search.client.model.match.Match> component1();
+    method public com.tomtom.sdk.search.client.model.match.Matches copy(java.util.List<com.tomtom.sdk.search.client.model.match.Match> inputQuery);
+    method public java.util.List<com.tomtom.sdk.search.client.model.match.Match> getInputQuery();
+    property public final java.util.List<com.tomtom.sdk.search.client.model.match.Match> inputQuery;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.model.poi {
+
+  public final class Brand {
+    ctor public Brand(String name);
+    method public String component1();
+    method public com.tomtom.sdk.search.client.model.poi.Brand copy(String name);
+    method public String getName();
+    property public final String name;
+  }
+
+  public final class Category {
+    ctor public Category(int id, optional String? mapSpecificId, String name, optional java.util.Set<com.tomtom.sdk.search.client.model.poi.Category> parents, optional java.util.Set<com.tomtom.sdk.search.client.model.poi.Category> children, optional java.util.List<java.lang.String> synonyms);
+    method public int component1-TBTGK0g();
+    method public String? component2();
+    method public String component3();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.poi.Category> component4();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.poi.Category> component5();
+    method public java.util.List<java.lang.String> component6();
+    method public com.tomtom.sdk.search.client.model.poi.Category copy-SCTyzgQ(int id, String? mapSpecificId, String name, java.util.Set<com.tomtom.sdk.search.client.model.poi.Category> parents, java.util.Set<com.tomtom.sdk.search.client.model.poi.Category> children, java.util.List<java.lang.String> synonyms);
+    method public java.util.Set<com.tomtom.sdk.search.client.model.poi.Category> getChildren();
+    method public int getId();
+    method public String? getMapSpecificId();
+    method public String getName();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.poi.Category> getParents();
+    method public java.util.List<java.lang.String> getSynonyms();
+    property public final java.util.Set<com.tomtom.sdk.search.client.model.poi.Category> children;
+    property public final int id;
+    property public final String? mapSpecificId;
+    property public final String name;
+    property public final java.util.Set<com.tomtom.sdk.search.client.model.poi.Category> parents;
+    property public final java.util.List<java.lang.String> synonyms;
+  }
+
+  @kotlin.jvm.JvmInline public final value class CategoryId {
+    ctor public CategoryId(int value);
+    method public int getValue();
+    property public final int value;
+    field public static final com.tomtom.sdk.search.client.model.poi.CategoryId.Companion Companion;
+  }
+
+  public static final class CategoryId.Companion {
+    method public int getATM();
+    method public int getATVDealer();
+    method public int getAccessGateway();
+    method public int getAdventureSportsFacility();
+    method public int getAdventureVehicleTrail();
+    method public int getAdvertisingCompany();
+    method public int getAfghanRestaurant();
+    method public int getAfricanRestaurant();
+    method public int getAgriculturalBusiness();
+    method public int getAgriculturalSupplies();
+    method public int getAgriculturalTechnology();
+    method public int getAirfield();
+    method public int getAirlineAccess();
+    method public int getAirlineCompany();
+    method public int getAirport();
+    method public int getAlgerianRestaurant();
+    method public int getAmbulanceUnit();
+    method public int getAmericanRestaurant();
+    method public int getAmphitheater();
+    method public int getAmusementArcade();
+    method public int getAmusementGames();
+    method public int getAmusementPark();
+    method public int getAmusementPlace();
+    method public int getAnimalServices();
+    method public int getAnimalShelter();
+    method public int getAntiqueArtShop();
+    method public int getApartmentRental();
+    method public int getAquaticZoo();
+    method public int getArabianRestaurant();
+    method public int getArboretaBotanicalGardens();
+    method public int getArch();
+    method public int getArgentinianRestaurant();
+    method public int getArmenianRestaurant();
+    method public int getArtSchool();
+    method public int getAshram();
+    method public int getAsianRestaurant();
+    method public int getAthleticsTrack();
+    method public int getAustralianRestaurant();
+    method public int getAustrianRestaurant();
+    method public int getAutomobileCompany();
+    method public int getAutomobileManufacturing();
+    method public int getAutomotiveDealer();
+    method public int getBBGuestHouse();
+    method public int getBagsLeatherwear();
+    method public int getBakery();
+    method public int getBank();
+    method public int getBanquetRooms();
+    method public int getBar();
+    method public int getBarbecueRestaurant();
+    method public int getBaseballPark();
+    method public int getBasketballArena();
+    method public int getBasqueRestaurant();
+    method public int getBattlefield();
+    method public int getBay();
+    method public int getBeach();
+    method public int getBeachClub();
+    method public int getBeautySalon();
+    method public int getBeautySupplies();
+    method public int getBelgianRestaurant();
+    method public int getBettingStation();
+    method public int getBistro();
+    method public int getBloodBank();
+    method public int getBoatBasin();
+    method public int getBoatDealer();
+    method public int getBoatLaunchingRamp();
+    method public int getBoatingEquipmentAccessories();
+    method public int getBodyshop();
+    method public int getBolivianRestaurant();
+    method public int getBookShop();
+    method public int getBosnianRestaurant();
+    method public int getBowlingCenter();
+    method public int getBrazilianRestaurant();
+    method public int getBridge();
+    method public int getBridgeTunnelOperations();
+    method public int getBritishRestaurant();
+    method public int getBuffetRestaurant();
+    method public int getBuilding();
+    method public int getBulgarianRestaurant();
+    method public int getBungalowRental();
+    method public int getBurmeseRestaurant();
+    method public int getBusCharterCompany();
+    method public int getBusDealer();
+    method public int getBusLines();
+    method public int getBusStop();
+    method public int getBusinessPark();
+    method public int getBusinessServices();
+    method public int getButcher();
+    method public int getCDsDVDVideos();
+    method public int getCabaretTheater();
+    method public int getCabinsLodges();
+    method public int getCableTelephoneCompany();
+    method public int getCafe();
+    method public int getCafePub();
+    method public int getCafeteria();
+    method public int getCalifornianRestaurant();
+    method public int getCambodianRestaurant();
+    method public int getCamerasPhotography();
+    method public int getCampground();
+    method public int getCanadianRestaurant();
+    method public int getCape();
+    method public int getCarAccessories();
+    method public int getCarDealer();
+    method public int getCarGlassReplacementShop();
+    method public int getCarRepairandService();
+    method public int getCarWash();
+    method public int getCaravanSite();
+    method public int getCaribbeanRestaurant();
+    method public int getCarpetFloorCoverings();
+    method public int getCasino();
+    method public int getCateringServices();
+    method public int getCave();
+    method public int getCemetery();
+    method public int getChaletRental();
+    method public int getCheckpoint();
+    method public int getChemicalCompany();
+    method public int getChickenRestaurant();
+    method public int getChildCareFacility();
+    method public int getChildrenClothes();
+    method public int getChileanRestaurant();
+    method public int getChineseRestaurant();
+    method public int getChristmasHolidayShop();
+    method public int getChurch();
+    method public int getCleaningServices();
+    method public int getClothingShop();
+    method public int getClubAssociation();
+    method public int getCoachStop();
+    method public int getCocktailBar();
+    method public int getCoffeeShop();
+    method public int getCollegeUniversity();
+    method public int getColombianRestaurant();
+    method public int getComedyClub();
+    method public int getCommercialBuilding();
+    method public int getCommunityCenter();
+    method public int getCompany();
+    method public int getComputerComputerSupplies();
+    method public int getComputerDataServices();
+    method public int getConcertHall();
+    method public int getCondominiumComplex();
+    method public int getConstructionCompany();
+    method public int getConstructionMaterialEquipment();
+    method public int getConsumerElectronics();
+    method public int getConvenienceStore();
+    method public int getCorsicanRestaurant();
+    method public int getCottageRental();
+    method public int getCourierDropBox();
+    method public int getCourthouse();
+    method public int getCove();
+    method public int getCreoleRestaurant();
+    method public int getCreperie();
+    method public int getCricketGround();
+    method public int getCubanRestaurant();
+    method public int getCulinarySchool();
+    method public int getCulturalCenter();
+    method public int getCurtainsTextiles();
+    method public int getCypriotRestaurant();
+    method public int getCzechRestaurant();
+    method public int getDam();
+    method public int getDanceStudioSchool();
+    method public int getDanishRestaurant();
+    method public int getDelicatessen();
+    method public int getDeliveryService();
+    method public int getDentist();
+    method public int getDepartmentStore();
+    method public int getDinnerTheater();
+    method public int getDiscoClub();
+    method public int getDiversifiedFinancials();
+    method public int getDoItYourselfCenters();
+    method public int getDoctor();
+    method public int getDominicanRestaurant();
+    method public int getDongbeiRestaurant();
+    method public int getDoughnutRestaurant();
+    method public int getDriveInMovies();
+    method public int getDriveThroughBottleShop();
+    method public int getDrivingSchool();
+    method public int getDrugStore();
+    method public int getDryCleaner();
+    method public int getDune();
+    method public int getDutchRestaurant();
+    method public int getEducationalInstitution();
+    method public int getEgyptianRestaurant();
+    method public int getElectricVehicleChargingStation();
+    method public int getElectricalAppliancesShop();
+    method public int getElectronicsCompany();
+    method public int getEmbassy();
+    method public int getEmergencyMedicalService();
+    method public int getEmergencyRoom();
+    method public int getEnglishRestaurant();
+    method public int getEntertainment();
+    method public int getEquipmentRental();
+    method public int getEroticRestaurant();
+    method public int getEthiopianRestaurant();
+    method public int getExchange();
+    method public int getExhibitionConventionCenter();
+    method public int getExoticRestaurant();
+    method public int getFactoryOutlet();
+    method public int getFairground();
+    method public int getFarm();
+    method public int getFarmersMarket();
+    method public int getFastFood();
+    method public int getFerryTerminal();
+    method public int getFinnishRestaurant();
+    method public int getFireStation();
+    method public int getFishingHuntingArea();
+    method public int getFishmonger();
+    method public int getFitnessClubCenter();
+    method public int getFlatsApartmentComplex();
+    method public int getFlorists();
+    method public int getFlyingClub();
+    method public int getFondueRestaurant();
+    method public int getFoodMarket();
+    method public int getFootballStadium();
+    method public int getFootwearShoeRepairs();
+    method public int getForestArea();
+    method public int getFrenchRestaurant();
+    method public int getFrontierCrossing();
+    method public int getFuneralServiceMortuaries();
+    method public int getFurnitureHomeFurnishings();
+    method public int getFusionRestaurant();
+    method public int getGardenCentersServices();
+    method public int getGasStation();
+    method public int getGeneralPractitioner();
+    method public int getGeographicFeature();
+    method public int getGermanRestaurant();
+    method public int getGiftsCardsNoveltiesSouvenirs();
+    method public int getGlassWindowsStore();
+    method public int getGlasswareCeramicShop();
+    method public int getGoldExchange();
+    method public int getGolfCourse();
+    method public int getGovernmentOffice();
+    method public int getGreekRestaurant();
+    method public int getGreengrocer();
+    method public int getGrillRestaurant();
+    method public int getGroceryStore();
+    method public int getGuangdongRestaurant();
+    method public int getGurudwara();
+    method public int getHairdresser();
+    method public int getHamburgerRestaurant();
+    method public int getHarbor();
+    method public int getHardwareStore();
+    method public int getHawaiianRestaurant();
+    method public int getHealthCareService();
+    method public int getHelipad();
+    method public int getHighSchool();
+    method public int getHikingTrail();
+    method public int getHill();
+    method public int getHistoricSite();
+    method public int getHistoricalPark();
+    method public int getHobbyShop();
+    method public int getHockeyClub();
+    method public int getHomeApplianceRepair();
+    method public int getHorseRacingTrack();
+    method public int getHorseRidingCenter();
+    method public int getHorseRidingTrail();
+    method public int getHorticulture();
+    method public int getHospital();
+    method public int getHospitalClinic();
+    method public int getHospitalforWomenandChildren();
+    method public int getHospitalofChineseMedicine();
+    method public int getHostel();
+    method public int getHotPotRestaurant();
+    method public int getHotel();
+    method public int getHotelMotel();
+    method public int getHouseGardenFurnitureFittings();
+    method public int getHunanRestaurant();
+    method public int getHungarianRestaurant();
+    method public int getIceCreamParlor();
+    method public int getIceHockeyArena();
+    method public int getIceSkatingRink();
+    method public int getImportExportandDistribution();
+    method public int getIndianRestaurant();
+    method public int getIndonesianRestaurant();
+    method public int getIndustrialBuilding();
+    method public int getInformalMarket();
+    method public int getInsuranceCompany();
+    method public int getInternationalRailroadStation();
+    method public int getInternationalRestaurant();
+    method public int getInternetCafe();
+    method public int getInvestmentAdvisor();
+    method public int getIranianRestaurant();
+    method public int getIrishRestaurant();
+    method public int getIsland();
+    method public int getIsraeliRestaurant();
+    method public int getItalianRestaurant();
+    method public int getJamaicanRestaurant();
+    method public int getJapaneseRestaurant();
+    method public int getJazzClub();
+    method public int getJewelryClocksWatches();
+    method public int getJewishRestaurant();
+    method public int getJuniorCollegeCommunityCollege();
+    method public int getKaraokeClub();
+    method public int getKitchensBathrooms();
+    method public int getKoreanRestaurant();
+    method public int getKosherRestaurant();
+    method public int getLagoon();
+    method public int getLakeshore();
+    method public int getLanguageSchool();
+    method public int getLatinAmericanRestaurant();
+    method public int getLaundry();
+    method public int getLebaneseRestaurant();
+    method public int getLegalServices();
+    method public int getLeisureCenter();
+    method public int getLibrary();
+    method public int getLightingShops();
+    method public int getLocalPostOffice();
+    method public int getLocalSpecialitiesShop();
+    method public int getLocale();
+    method public int getLotteryShop();
+    method public int getLuxembourgianRestaurant();
+    method public int getMacrobioticRestaurant();
+    method public int getMaghribRestaurant();
+    method public int getMalteseRestaurant();
+    method public int getManufacturingCompany();
+    method public int getManufacturingFacility();
+    method public int getMarijuanaDispensary();
+    method public int getMarina();
+    method public int getMarineElectronicEquipment();
+    method public int getMarket();
+    method public int getMarsh();
+    method public int getMauritianRestaurant();
+    method public int getMausoleumGrave();
+    method public int getMechanicalEngineering();
+    method public int getMediaFacility();
+    method public int getMedicalSuppliesEquipment();
+    method public int getMedicinalMarijuanaDispensary();
+    method public int getMediterraneanRestaurant();
+    method public int getMemorial();
+    method public int getMenClothing();
+    method public int getMexicanRestaurant();
+    method public int getMicrobrewery();
+    method public int getMiddleEasternRestaurant();
+    method public int getMiddleSchool();
+    method public int getMilitaryAirport();
+    method public int getMilitaryInstallation();
+    method public int getMineralHotSprings();
+    method public int getMiningCompany();
+    method public int getMobilePhoneShop();
+    method public int getMongolianRestaurant();
+    method public int getMonument();
+    method public int getMoroccanRestaurant();
+    method public int getMosque();
+    method public int getMotel();
+    method public int getMotorRacingStadium();
+    method public int getMotorcycleDealer();
+    method public int getMotorcycleRepair();
+    method public int getMotoringOrganizationOffice();
+    method public int getMountainBikeTrail();
+    method public int getMountainPass();
+    method public int getMountainPeak();
+    method public int getMovieTheater();
+    method public int getMovingStorageCompany();
+    method public int getMultiPurposeStadium();
+    method public int getMuseum();
+    method public int getMusicCenter();
+    method public int getMusicInstrumentsStore();
+    method public int getMusselsRestaurant();
+    method public int getNailSalon();
+    method public int getNationalRailroadStation();
+    method public int getNativeReservation();
+    method public int getNaturalRecreationAttraction();
+    method public int getNaturalTouristAttraction();
+    method public int getNepaleseRestaurant();
+    method public int getNetballStadium();
+    method public int getNewsagentsTobacconists();
+    method public int getNightlife();
+    method public int getNonGovernmentalOrganization();
+    method public int getNorwegianRestaurant();
+    method public int getOEM();
+    method public int getOasis();
+    method public int getObservatory();
+    method public int getOfficeEquipment();
+    method public int getOilNaturalGas();
+    method public int getOpenCarParkingArea();
+    method public int getOpenParkingArea();
+    method public int getOperaHouse();
+    method public int getOptician();
+    method public int getOrganicFoodRestaurant();
+    method public int getOrientalRestaurant();
+    method public int getOtherFoodShops();
+    method public int getOtherRepairShops();
+    method public int getOtherWinterSport();
+    method public int getPagoda();
+    method public int getPaintingDecorating();
+    method public int getPakistaniRestaurant();
+    method public int getPan();
+    method public int getPark();
+    method public int getParkRecreationArea();
+    method public int getParkingGarage();
+    method public int getParkway();
+    method public int getPassengerTransportTicketOffice();
+    method public int getPawnShop();
+    method public int getPedestrianSubway();
+    method public int getPersonalCareFacility();
+    method public int getPersonalService();
+    method public int getPeruvianRestaurant();
+    method public int getPetSupplies();
+    method public int getPharmaceuticalCompany();
+    method public int getPharmacy();
+    method public int getPhilippineRestaurant();
+    method public int getPhotoLabDevelopment();
+    method public int getPhotocopyShop();
+    method public int getPicnicArea();
+    method public int getPizzeria();
+    method public int getPlaceofWorship();
+    method public int getPlainFlat();
+    method public int getPlanetarium();
+    method public int getPlateau();
+    method public int getPlayhouse();
+    method public int getPoliceStation();
+    method public int getPolishRestaurant();
+    method public int getPolynesianRestaurant();
+    method public int getPortWarehouseFacility();
+    method public int getPortugueseRestaurant();
+    method public int getPostOffice();
+    method public int getPostalService();
+    method public int getPreSchool();
+    method public int getPreserve();
+    method public int getPrimaryProducer();
+    method public int getPrimaryResourceUtility();
+    method public int getPrimarySchool();
+    method public int getPrisonCorrectionalFacility();
+    method public int getPrivateAirport();
+    method public int getPrivateClub();
+    method public int getProvencalRestaurant();
+    method public int getPub();
+    method public int getPubFood();
+    method public int getPublicAirport();
+    method public int getPublicAmenity();
+    method public int getPublicCallBox();
+    method public int getPublicHealthTechnologyCompany();
+    method public int getPublicMarket();
+    method public int getPublicToilet();
+    method public int getPublicTransportationStop();
+    method public int getPublishingTechnologies();
+    method public int getQuarry();
+    method public int getRaceTrack();
+    method public int getRailroadSiding();
+    method public int getRailroadStation();
+    method public int getRapids();
+    method public int getRealEstateAgent();
+    method public int getRealEstateCompany();
+    method public int getRecreationArea();
+    method public int getRecreationalCampingGround();
+    method public int getRecreationalVehicleDealer();
+    method public int getRecyclingShop();
+    method public int getReef();
+    method public int getRentACarFacility();
+    method public int getRentACarParking();
+    method public int getRepairShop();
+    method public int getResearchFacility();
+    method public int getReservoir();
+    method public int getResidentialAccommodations();
+    method public int getResidentialEstate();
+    method public int getResort();
+    method public int getRestArea();
+    method public int getRestCamp();
+    method public int getRestaurant();
+    method public int getRestaurantArea();
+    method public int getRetailOutlet();
+    method public int getRetirementCommunity();
+    method public int getRidge();
+    method public int getRiverCrossing();
+    method public int getRiverScenicArea();
+    method public int getRoadRescue();
+    method public int getRoadTrafficControlCenter();
+    method public int getRoadsideRestaurant();
+    method public int getRockClimbingTrail();
+    method public int getRocks();
+    method public int getRomanianRestaurant();
+    method public int getRugbyGround();
+    method public int getRussianRestaurant();
+    method public int getSaladBar();
+    method public int getSandwichRestaurant();
+    method public int getSaunaSolariumMassage();
+    method public int getSavingsInstitution();
+    method public int getSavoyRestaurant();
+    method public int getScandinavianRestaurant();
+    method public int getScenicPanoramicView();
+    method public int getSchool();
+    method public int getScottishRestaurant();
+    method public int getSeafood();
+    method public int getSeashore();
+    method public int getSecuredEntrance();
+    method public int getSecurityProducts();
+    method public int getSeniorHighSchool();
+    method public int getServiceCompany();
+    method public int getShandongRestaurant();
+    method public int getShanghaiRestaurant();
+    method public int getShop();
+    method public int getShoppingCenter();
+    method public int getShoppingService();
+    method public int getSichuanRestaurant();
+    method public int getSicilianRestaurant();
+    method public int getSkiResort();
+    method public int getSlavicRestaurant();
+    method public int getSlovakRestaurant();
+    method public int getSnacksRestaurant();
+    method public int getSnookerPoolBilliard();
+    method public int getSoccerStadium();
+    method public int getSoftwareCompany();
+    method public int getSoulFood();
+    method public int getSoupRestaurant();
+    method public int getSpanishRestaurant();
+    method public int getSpecialHospital();
+    method public int getSpecialSchool();
+    method public int getSpecialist();
+    method public int getSpecialtyClothingShop();
+    method public int getSpecialtyFoods();
+    method public int getSportSchool();
+    method public int getSportsCenter();
+    method public int getSportsEquipmentClothing();
+    method public int getStadium();
+    method public int getStampShop();
+    method public int getStationAccess();
+    method public int getStatue();
+    method public int getSteakHouse();
+    method public int getStockExchange();
+    method public int getStreetcarStop();
+    method public int getSubwayStation();
+    method public int getSudaneseRestaurant();
+    method public int getSupermarketsHypermarkets();
+    method public int getSurinameseRestaurant();
+    method public int getSushiRestaurant();
+    method public int getSwedishRestaurant();
+    method public int getSwimmingPool();
+    method public int getSwissRestaurant();
+    method public int getSynagog();
+    method public int getSyrianRestaurant();
+    method public int getTailorShop();
+    method public int getTaiwaneseRestaurant();
+    method public int getTakeoutFood();
+    method public int getTapasRestaurant();
+    method public int getTaxServices();
+    method public int getTaxiLimousineShuttleService();
+    method public int getTaxiStand();
+    method public int getTeaHouse();
+    method public int getTechnicalSchool();
+    method public int getTelecommunications();
+    method public int getTemple();
+    method public int getTennisCourt();
+    method public int getTeppanyakiRestaurant();
+    method public int getTertiaryEducation();
+    method public int getThaiRestaurant();
+    method public int getTheater();
+    method public int getTibetanRestaurant();
+    method public int getTireService();
+    method public int getTollGate();
+    method public int getTouristAttraction();
+    method public int getTouristInformationOffice();
+    method public int getTower();
+    method public int getTownhouseComplex();
+    method public int getToysGamesShop();
+    method public int getTrafficControlDepartment();
+    method public int getTrails();
+    method public int getTransportAuthorityVehicleRegistrationOffice();
+    method public int getTransportCompany();
+    method public int getTravelAgent();
+    method public int getTruckDealer();
+    method public int getTruckRepairandService();
+    method public int getTruckStop();
+    method public int getTruckWash();
+    method public int getTunisianRestaurant();
+    method public int getTunnel();
+    method public int getTurkishRestaurant();
+    method public int getUrbanStation();
+    method public int getUruguayanRestaurant();
+    method public int getVacationRental();
+    method public int getValley();
+    method public int getVanDealer();
+    method public int getVarietyStore();
+    method public int getVegetarianRestaurant();
+    method public int getVenezuelanRestaurant();
+    method public int getVeterinarian();
+    method public int getVideoRentalShop();
+    method public int getVietnameseRestaurant();
+    method public int getVillaRental();
+    method public int getVocationalSchool();
+    method public int getWaterHole();
+    method public int getWaterSport();
+    method public int getWeddingServices();
+    method public int getWeighScales();
+    method public int getWeighStation();
+    method public int getWelfareOrganization();
+    method public int getWell();
+    method public int getWelshRestaurant();
+    method public int getWesternRestaurant();
+    method public int getWholesaleClub();
+    method public int getWildernessArea();
+    method public int getWildlifePark();
+    method public int getWineBar();
+    method public int getWineSpirits();
+    method public int getWinery();
+    method public int getWomenClothing();
+    method public int getYachtBasin();
+    method public int getYogurtJuiceBar();
+    method public int getZoo();
+    method public int getZooArboretumBotanicalGarden();
+    property public final int ATM;
+    property public final int ATVDealer;
+    property public final int AccessGateway;
+    property public final int AdventureSportsFacility;
+    property public final int AdventureVehicleTrail;
+    property public final int AdvertisingCompany;
+    property public final int AfghanRestaurant;
+    property public final int AfricanRestaurant;
+    property public final int AgriculturalBusiness;
+    property public final int AgriculturalSupplies;
+    property public final int AgriculturalTechnology;
+    property public final int Airfield;
+    property public final int AirlineAccess;
+    property public final int AirlineCompany;
+    property public final int Airport;
+    property public final int AlgerianRestaurant;
+    property public final int AmbulanceUnit;
+    property public final int AmericanRestaurant;
+    property public final int Amphitheater;
+    property public final int AmusementArcade;
+    property public final int AmusementGames;
+    property public final int AmusementPark;
+    property public final int AmusementPlace;
+    property public final int AnimalServices;
+    property public final int AnimalShelter;
+    property public final int AntiqueArtShop;
+    property public final int ApartmentRental;
+    property public final int AquaticZoo;
+    property public final int ArabianRestaurant;
+    property public final int ArboretaBotanicalGardens;
+    property public final int Arch;
+    property public final int ArgentinianRestaurant;
+    property public final int ArmenianRestaurant;
+    property public final int ArtSchool;
+    property public final int Ashram;
+    property public final int AsianRestaurant;
+    property public final int AthleticsTrack;
+    property public final int AustralianRestaurant;
+    property public final int AustrianRestaurant;
+    property public final int AutomobileCompany;
+    property public final int AutomobileManufacturing;
+    property public final int AutomotiveDealer;
+    property public final int BBGuestHouse;
+    property public final int BagsLeatherwear;
+    property public final int Bakery;
+    property public final int Bank;
+    property public final int BanquetRooms;
+    property public final int Bar;
+    property public final int BarbecueRestaurant;
+    property public final int BaseballPark;
+    property public final int BasketballArena;
+    property public final int BasqueRestaurant;
+    property public final int Battlefield;
+    property public final int Bay;
+    property public final int Beach;
+    property public final int BeachClub;
+    property public final int BeautySalon;
+    property public final int BeautySupplies;
+    property public final int BelgianRestaurant;
+    property public final int BettingStation;
+    property public final int Bistro;
+    property public final int BloodBank;
+    property public final int BoatBasin;
+    property public final int BoatDealer;
+    property public final int BoatLaunchingRamp;
+    property public final int BoatingEquipmentAccessories;
+    property public final int Bodyshop;
+    property public final int BolivianRestaurant;
+    property public final int BookShop;
+    property public final int BosnianRestaurant;
+    property public final int BowlingCenter;
+    property public final int BrazilianRestaurant;
+    property public final int Bridge;
+    property public final int BridgeTunnelOperations;
+    property public final int BritishRestaurant;
+    property public final int BuffetRestaurant;
+    property public final int Building;
+    property public final int BulgarianRestaurant;
+    property public final int BungalowRental;
+    property public final int BurmeseRestaurant;
+    property public final int BusCharterCompany;
+    property public final int BusDealer;
+    property public final int BusLines;
+    property public final int BusStop;
+    property public final int BusinessPark;
+    property public final int BusinessServices;
+    property public final int Butcher;
+    property public final int CDsDVDVideos;
+    property public final int CabaretTheater;
+    property public final int CabinsLodges;
+    property public final int CableTelephoneCompany;
+    property public final int Cafe;
+    property public final int CafePub;
+    property public final int Cafeteria;
+    property public final int CalifornianRestaurant;
+    property public final int CambodianRestaurant;
+    property public final int CamerasPhotography;
+    property public final int Campground;
+    property public final int CanadianRestaurant;
+    property public final int Cape;
+    property public final int CarAccessories;
+    property public final int CarDealer;
+    property public final int CarGlassReplacementShop;
+    property public final int CarRepairandService;
+    property public final int CarWash;
+    property public final int CaravanSite;
+    property public final int CaribbeanRestaurant;
+    property public final int CarpetFloorCoverings;
+    property public final int Casino;
+    property public final int CateringServices;
+    property public final int Cave;
+    property public final int Cemetery;
+    property public final int ChaletRental;
+    property public final int Checkpoint;
+    property public final int ChemicalCompany;
+    property public final int ChickenRestaurant;
+    property public final int ChildCareFacility;
+    property public final int ChildrenClothes;
+    property public final int ChileanRestaurant;
+    property public final int ChineseRestaurant;
+    property public final int ChristmasHolidayShop;
+    property public final int Church;
+    property public final int CleaningServices;
+    property public final int ClothingShop;
+    property public final int ClubAssociation;
+    property public final int CoachStop;
+    property public final int CocktailBar;
+    property public final int CoffeeShop;
+    property public final int CollegeUniversity;
+    property public final int ColombianRestaurant;
+    property public final int ComedyClub;
+    property public final int CommercialBuilding;
+    property public final int CommunityCenter;
+    property public final int Company;
+    property public final int ComputerComputerSupplies;
+    property public final int ComputerDataServices;
+    property public final int ConcertHall;
+    property public final int CondominiumComplex;
+    property public final int ConstructionCompany;
+    property public final int ConstructionMaterialEquipment;
+    property public final int ConsumerElectronics;
+    property public final int ConvenienceStore;
+    property public final int CorsicanRestaurant;
+    property public final int CottageRental;
+    property public final int CourierDropBox;
+    property public final int Courthouse;
+    property public final int Cove;
+    property public final int CreoleRestaurant;
+    property public final int Creperie;
+    property public final int CricketGround;
+    property public final int CubanRestaurant;
+    property public final int CulinarySchool;
+    property public final int CulturalCenter;
+    property public final int CurtainsTextiles;
+    property public final int CypriotRestaurant;
+    property public final int CzechRestaurant;
+    property public final int Dam;
+    property public final int DanceStudioSchool;
+    property public final int DanishRestaurant;
+    property public final int Delicatessen;
+    property public final int DeliveryService;
+    property public final int Dentist;
+    property public final int DepartmentStore;
+    property public final int DinnerTheater;
+    property public final int DiscoClub;
+    property public final int DiversifiedFinancials;
+    property public final int DoItYourselfCenters;
+    property public final int Doctor;
+    property public final int DominicanRestaurant;
+    property public final int DongbeiRestaurant;
+    property public final int DoughnutRestaurant;
+    property public final int DriveInMovies;
+    property public final int DriveThroughBottleShop;
+    property public final int DrivingSchool;
+    property public final int DrugStore;
+    property public final int DryCleaner;
+    property public final int Dune;
+    property public final int DutchRestaurant;
+    property public final int EducationalInstitution;
+    property public final int EgyptianRestaurant;
+    property public final int ElectricVehicleChargingStation;
+    property public final int ElectricalAppliancesShop;
+    property public final int ElectronicsCompany;
+    property public final int Embassy;
+    property public final int EmergencyMedicalService;
+    property public final int EmergencyRoom;
+    property public final int EnglishRestaurant;
+    property public final int Entertainment;
+    property public final int EquipmentRental;
+    property public final int EroticRestaurant;
+    property public final int EthiopianRestaurant;
+    property public final int Exchange;
+    property public final int ExhibitionConventionCenter;
+    property public final int ExoticRestaurant;
+    property public final int FactoryOutlet;
+    property public final int Fairground;
+    property public final int Farm;
+    property public final int FarmersMarket;
+    property public final int FastFood;
+    property public final int FerryTerminal;
+    property public final int FinnishRestaurant;
+    property public final int FireStation;
+    property public final int FishingHuntingArea;
+    property public final int Fishmonger;
+    property public final int FitnessClubCenter;
+    property public final int FlatsApartmentComplex;
+    property public final int Florists;
+    property public final int FlyingClub;
+    property public final int FondueRestaurant;
+    property public final int FoodMarket;
+    property public final int FootballStadium;
+    property public final int FootwearShoeRepairs;
+    property public final int ForestArea;
+    property public final int FrenchRestaurant;
+    property public final int FrontierCrossing;
+    property public final int FuneralServiceMortuaries;
+    property public final int FurnitureHomeFurnishings;
+    property public final int FusionRestaurant;
+    property public final int GardenCentersServices;
+    property public final int GasStation;
+    property public final int GeneralPractitioner;
+    property public final int GeographicFeature;
+    property public final int GermanRestaurant;
+    property public final int GiftsCardsNoveltiesSouvenirs;
+    property public final int GlassWindowsStore;
+    property public final int GlasswareCeramicShop;
+    property public final int GoldExchange;
+    property public final int GolfCourse;
+    property public final int GovernmentOffice;
+    property public final int GreekRestaurant;
+    property public final int Greengrocer;
+    property public final int GrillRestaurant;
+    property public final int GroceryStore;
+    property public final int GuangdongRestaurant;
+    property public final int Gurudwara;
+    property public final int Hairdresser;
+    property public final int HamburgerRestaurant;
+    property public final int Harbor;
+    property public final int HardwareStore;
+    property public final int HawaiianRestaurant;
+    property public final int HealthCareService;
+    property public final int Helipad;
+    property public final int HighSchool;
+    property public final int HikingTrail;
+    property public final int Hill;
+    property public final int HistoricSite;
+    property public final int HistoricalPark;
+    property public final int HobbyShop;
+    property public final int HockeyClub;
+    property public final int HomeApplianceRepair;
+    property public final int HorseRacingTrack;
+    property public final int HorseRidingCenter;
+    property public final int HorseRidingTrail;
+    property public final int Horticulture;
+    property public final int Hospital;
+    property public final int HospitalClinic;
+    property public final int HospitalforWomenandChildren;
+    property public final int HospitalofChineseMedicine;
+    property public final int Hostel;
+    property public final int HotPotRestaurant;
+    property public final int Hotel;
+    property public final int HotelMotel;
+    property public final int HouseGardenFurnitureFittings;
+    property public final int HunanRestaurant;
+    property public final int HungarianRestaurant;
+    property public final int IceCreamParlor;
+    property public final int IceHockeyArena;
+    property public final int IceSkatingRink;
+    property public final int ImportExportandDistribution;
+    property public final int IndianRestaurant;
+    property public final int IndonesianRestaurant;
+    property public final int IndustrialBuilding;
+    property public final int InformalMarket;
+    property public final int InsuranceCompany;
+    property public final int InternationalRailroadStation;
+    property public final int InternationalRestaurant;
+    property public final int InternetCafe;
+    property public final int InvestmentAdvisor;
+    property public final int IranianRestaurant;
+    property public final int IrishRestaurant;
+    property public final int Island;
+    property public final int IsraeliRestaurant;
+    property public final int ItalianRestaurant;
+    property public final int JamaicanRestaurant;
+    property public final int JapaneseRestaurant;
+    property public final int JazzClub;
+    property public final int JewelryClocksWatches;
+    property public final int JewishRestaurant;
+    property public final int JuniorCollegeCommunityCollege;
+    property public final int KaraokeClub;
+    property public final int KitchensBathrooms;
+    property public final int KoreanRestaurant;
+    property public final int KosherRestaurant;
+    property public final int Lagoon;
+    property public final int Lakeshore;
+    property public final int LanguageSchool;
+    property public final int LatinAmericanRestaurant;
+    property public final int Laundry;
+    property public final int LebaneseRestaurant;
+    property public final int LegalServices;
+    property public final int LeisureCenter;
+    property public final int Library;
+    property public final int LightingShops;
+    property public final int LocalPostOffice;
+    property public final int LocalSpecialitiesShop;
+    property public final int Locale;
+    property public final int LotteryShop;
+    property public final int LuxembourgianRestaurant;
+    property public final int MacrobioticRestaurant;
+    property public final int MaghribRestaurant;
+    property public final int MalteseRestaurant;
+    property public final int ManufacturingCompany;
+    property public final int ManufacturingFacility;
+    property public final int MarijuanaDispensary;
+    property public final int Marina;
+    property public final int MarineElectronicEquipment;
+    property public final int Market;
+    property public final int Marsh;
+    property public final int MauritianRestaurant;
+    property public final int MausoleumGrave;
+    property public final int MechanicalEngineering;
+    property public final int MediaFacility;
+    property public final int MedicalSuppliesEquipment;
+    property public final int MedicinalMarijuanaDispensary;
+    property public final int MediterraneanRestaurant;
+    property public final int Memorial;
+    property public final int MenClothing;
+    property public final int MexicanRestaurant;
+    property public final int Microbrewery;
+    property public final int MiddleEasternRestaurant;
+    property public final int MiddleSchool;
+    property public final int MilitaryAirport;
+    property public final int MilitaryInstallation;
+    property public final int MineralHotSprings;
+    property public final int MiningCompany;
+    property public final int MobilePhoneShop;
+    property public final int MongolianRestaurant;
+    property public final int Monument;
+    property public final int MoroccanRestaurant;
+    property public final int Mosque;
+    property public final int Motel;
+    property public final int MotorRacingStadium;
+    property public final int MotorcycleDealer;
+    property public final int MotorcycleRepair;
+    property public final int MotoringOrganizationOffice;
+    property public final int MountainBikeTrail;
+    property public final int MountainPass;
+    property public final int MountainPeak;
+    property public final int MovieTheater;
+    property public final int MovingStorageCompany;
+    property public final int MultiPurposeStadium;
+    property public final int Museum;
+    property public final int MusicCenter;
+    property public final int MusicInstrumentsStore;
+    property public final int MusselsRestaurant;
+    property public final int NailSalon;
+    property public final int NationalRailroadStation;
+    property public final int NativeReservation;
+    property public final int NaturalRecreationAttraction;
+    property public final int NaturalTouristAttraction;
+    property public final int NepaleseRestaurant;
+    property public final int NetballStadium;
+    property public final int NewsagentsTobacconists;
+    property public final int Nightlife;
+    property public final int NonGovernmentalOrganization;
+    property public final int NorwegianRestaurant;
+    property public final int OEM;
+    property public final int Oasis;
+    property public final int Observatory;
+    property public final int OfficeEquipment;
+    property public final int OilNaturalGas;
+    property public final int OpenCarParkingArea;
+    property public final int OpenParkingArea;
+    property public final int OperaHouse;
+    property public final int Optician;
+    property public final int OrganicFoodRestaurant;
+    property public final int OrientalRestaurant;
+    property public final int OtherFoodShops;
+    property public final int OtherRepairShops;
+    property public final int OtherWinterSport;
+    property public final int Pagoda;
+    property public final int PaintingDecorating;
+    property public final int PakistaniRestaurant;
+    property public final int Pan;
+    property public final int Park;
+    property public final int ParkRecreationArea;
+    property public final int ParkingGarage;
+    property public final int Parkway;
+    property public final int PassengerTransportTicketOffice;
+    property public final int PawnShop;
+    property public final int PedestrianSubway;
+    property public final int PersonalCareFacility;
+    property public final int PersonalService;
+    property public final int PeruvianRestaurant;
+    property public final int PetSupplies;
+    property public final int PharmaceuticalCompany;
+    property public final int Pharmacy;
+    property public final int PhilippineRestaurant;
+    property public final int PhotoLabDevelopment;
+    property public final int PhotocopyShop;
+    property public final int PicnicArea;
+    property public final int Pizzeria;
+    property public final int PlaceofWorship;
+    property public final int PlainFlat;
+    property public final int Planetarium;
+    property public final int Plateau;
+    property public final int Playhouse;
+    property public final int PoliceStation;
+    property public final int PolishRestaurant;
+    property public final int PolynesianRestaurant;
+    property public final int PortWarehouseFacility;
+    property public final int PortugueseRestaurant;
+    property public final int PostOffice;
+    property public final int PostalService;
+    property public final int PreSchool;
+    property public final int Preserve;
+    property public final int PrimaryProducer;
+    property public final int PrimaryResourceUtility;
+    property public final int PrimarySchool;
+    property public final int PrisonCorrectionalFacility;
+    property public final int PrivateAirport;
+    property public final int PrivateClub;
+    property public final int ProvencalRestaurant;
+    property public final int Pub;
+    property public final int PubFood;
+    property public final int PublicAirport;
+    property public final int PublicAmenity;
+    property public final int PublicCallBox;
+    property public final int PublicHealthTechnologyCompany;
+    property public final int PublicMarket;
+    property public final int PublicToilet;
+    property public final int PublicTransportationStop;
+    property public final int PublishingTechnologies;
+    property public final int Quarry;
+    property public final int RaceTrack;
+    property public final int RailroadSiding;
+    property public final int RailroadStation;
+    property public final int Rapids;
+    property public final int RealEstateAgent;
+    property public final int RealEstateCompany;
+    property public final int RecreationArea;
+    property public final int RecreationalCampingGround;
+    property public final int RecreationalVehicleDealer;
+    property public final int RecyclingShop;
+    property public final int Reef;
+    property public final int RentACarFacility;
+    property public final int RentACarParking;
+    property public final int RepairShop;
+    property public final int ResearchFacility;
+    property public final int Reservoir;
+    property public final int ResidentialAccommodations;
+    property public final int ResidentialEstate;
+    property public final int Resort;
+    property public final int RestArea;
+    property public final int RestCamp;
+    property public final int Restaurant;
+    property public final int RestaurantArea;
+    property public final int RetailOutlet;
+    property public final int RetirementCommunity;
+    property public final int Ridge;
+    property public final int RiverCrossing;
+    property public final int RiverScenicArea;
+    property public final int RoadRescue;
+    property public final int RoadTrafficControlCenter;
+    property public final int RoadsideRestaurant;
+    property public final int RockClimbingTrail;
+    property public final int Rocks;
+    property public final int RomanianRestaurant;
+    property public final int RugbyGround;
+    property public final int RussianRestaurant;
+    property public final int SaladBar;
+    property public final int SandwichRestaurant;
+    property public final int SaunaSolariumMassage;
+    property public final int SavingsInstitution;
+    property public final int SavoyRestaurant;
+    property public final int ScandinavianRestaurant;
+    property public final int ScenicPanoramicView;
+    property public final int School;
+    property public final int ScottishRestaurant;
+    property public final int Seafood;
+    property public final int Seashore;
+    property public final int SecuredEntrance;
+    property public final int SecurityProducts;
+    property public final int SeniorHighSchool;
+    property public final int ServiceCompany;
+    property public final int ShandongRestaurant;
+    property public final int ShanghaiRestaurant;
+    property public final int Shop;
+    property public final int ShoppingCenter;
+    property public final int ShoppingService;
+    property public final int SichuanRestaurant;
+    property public final int SicilianRestaurant;
+    property public final int SkiResort;
+    property public final int SlavicRestaurant;
+    property public final int SlovakRestaurant;
+    property public final int SnacksRestaurant;
+    property public final int SnookerPoolBilliard;
+    property public final int SoccerStadium;
+    property public final int SoftwareCompany;
+    property public final int SoulFood;
+    property public final int SoupRestaurant;
+    property public final int SpanishRestaurant;
+    property public final int SpecialHospital;
+    property public final int SpecialSchool;
+    property public final int Specialist;
+    property public final int SpecialtyClothingShop;
+    property public final int SpecialtyFoods;
+    property public final int SportSchool;
+    property public final int SportsCenter;
+    property public final int SportsEquipmentClothing;
+    property public final int Stadium;
+    property public final int StampShop;
+    property public final int StationAccess;
+    property public final int Statue;
+    property public final int SteakHouse;
+    property public final int StockExchange;
+    property public final int StreetcarStop;
+    property public final int SubwayStation;
+    property public final int SudaneseRestaurant;
+    property public final int SupermarketsHypermarkets;
+    property public final int SurinameseRestaurant;
+    property public final int SushiRestaurant;
+    property public final int SwedishRestaurant;
+    property public final int SwimmingPool;
+    property public final int SwissRestaurant;
+    property public final int Synagog;
+    property public final int SyrianRestaurant;
+    property public final int TailorShop;
+    property public final int TaiwaneseRestaurant;
+    property public final int TakeoutFood;
+    property public final int TapasRestaurant;
+    property public final int TaxServices;
+    property public final int TaxiLimousineShuttleService;
+    property public final int TaxiStand;
+    property public final int TeaHouse;
+    property public final int TechnicalSchool;
+    property public final int Telecommunications;
+    property public final int Temple;
+    property public final int TennisCourt;
+    property public final int TeppanyakiRestaurant;
+    property public final int TertiaryEducation;
+    property public final int ThaiRestaurant;
+    property public final int Theater;
+    property public final int TibetanRestaurant;
+    property public final int TireService;
+    property public final int TollGate;
+    property public final int TouristAttraction;
+    property public final int TouristInformationOffice;
+    property public final int Tower;
+    property public final int TownhouseComplex;
+    property public final int ToysGamesShop;
+    property public final int TrafficControlDepartment;
+    property public final int Trails;
+    property public final int TransportAuthorityVehicleRegistrationOffice;
+    property public final int TransportCompany;
+    property public final int TravelAgent;
+    property public final int TruckDealer;
+    property public final int TruckRepairandService;
+    property public final int TruckStop;
+    property public final int TruckWash;
+    property public final int TunisianRestaurant;
+    property public final int Tunnel;
+    property public final int TurkishRestaurant;
+    property public final int UrbanStation;
+    property public final int UruguayanRestaurant;
+    property public final int VacationRental;
+    property public final int Valley;
+    property public final int VanDealer;
+    property public final int VarietyStore;
+    property public final int VegetarianRestaurant;
+    property public final int VenezuelanRestaurant;
+    property public final int Veterinarian;
+    property public final int VideoRentalShop;
+    property public final int VietnameseRestaurant;
+    property public final int VillaRental;
+    property public final int VocationalSchool;
+    property public final int WaterHole;
+    property public final int WaterSport;
+    property public final int WeddingServices;
+    property public final int WeighScales;
+    property public final int WeighStation;
+    property public final int WelfareOrganization;
+    property public final int Well;
+    property public final int WelshRestaurant;
+    property public final int WesternRestaurant;
+    property public final int WholesaleClub;
+    property public final int WildernessArea;
+    property public final int WildlifePark;
+    property public final int WineBar;
+    property public final int WineSpirits;
+    property public final int Winery;
+    property public final int WomenClothing;
+    property public final int YachtBasin;
+    property public final int YogurtJuiceBar;
+    property public final int Zoo;
+    property public final int ZooArboretumBotanicalGarden;
+  }
+
+  public final class Classification {
+    ctor public Classification(String code, java.util.List<com.tomtom.sdk.search.client.model.poi.ClassificationName> names);
+    method public String component1();
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.ClassificationName> component2();
+    method public com.tomtom.sdk.search.client.model.poi.Classification copy(String code, java.util.List<com.tomtom.sdk.search.client.model.poi.ClassificationName> names);
+    method public String getCode();
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.ClassificationName> getNames();
+    property public final String code;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.poi.ClassificationName> names;
+  }
+
+  public final class ClassificationName {
+    ctor public ClassificationName(String localeName, String name);
+    method public String component1();
+    method public String component2();
+    method public com.tomtom.sdk.search.client.model.poi.ClassificationName copy(String localeName, String name);
+    method public String getLocaleName();
+    method public String getName();
+    property public final String localeName;
+    property public final String name;
+  }
+
+  public final class Poi {
+    ctor public Poi(String name, optional String phone, optional java.util.List<com.tomtom.sdk.search.client.model.poi.Brand> brands, optional String url, optional java.util.List<com.tomtom.sdk.search.client.model.poi.CategoryId> categorySet, com.tomtom.sdk.search.client.model.time.OpeningHours? openingHours, optional java.util.List<com.tomtom.sdk.search.client.model.poi.Classification> classifications, com.tomtom.sdk.search.client.model.time.TimeZone? timeZone);
+    method public String component1();
+    method public String component2();
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.Brand> component3();
+    method public String component4();
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.CategoryId> component5();
+    method public com.tomtom.sdk.search.client.model.time.OpeningHours? component6();
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.Classification> component7();
+    method public com.tomtom.sdk.search.client.model.time.TimeZone? component8();
+    method public com.tomtom.sdk.search.client.model.poi.Poi copy(String name, String phone, java.util.List<com.tomtom.sdk.search.client.model.poi.Brand> brands, String url, java.util.List<com.tomtom.sdk.search.client.model.poi.CategoryId> categorySet, com.tomtom.sdk.search.client.model.time.OpeningHours? openingHours, java.util.List<com.tomtom.sdk.search.client.model.poi.Classification> classifications, com.tomtom.sdk.search.client.model.time.TimeZone? timeZone);
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.Brand> getBrands();
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.CategoryId> getCategorySet();
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.Classification> getClassifications();
+    method public String getName();
+    method public com.tomtom.sdk.search.client.model.time.OpeningHours? getOpeningHours();
+    method public String getPhone();
+    method public com.tomtom.sdk.search.client.model.time.TimeZone? getTimeZone();
+    method public String getUrl();
+    property public final java.util.List<com.tomtom.sdk.search.client.model.poi.Brand> brands;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.poi.CategoryId> categorySet;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.poi.Classification> classifications;
+    property public final String name;
+    property public final com.tomtom.sdk.search.client.model.time.OpeningHours? openingHours;
+    property public final String phone;
+    property public final com.tomtom.sdk.search.client.model.time.TimeZone? timeZone;
+    property public final String url;
+  }
+
+  public enum PoiRelationType {
+    enum_constant public static final com.tomtom.sdk.search.client.model.poi.PoiRelationType CHILD;
+    enum_constant public static final com.tomtom.sdk.search.client.model.poi.PoiRelationType PARENT;
+  }
+
+  public final class PopularHour {
+    ctor public PopularHour(int dayOfWeek, java.util.List<com.tomtom.sdk.search.client.model.time.TimeRange> timeRanges);
+    method public int component1();
+    method public java.util.List<com.tomtom.sdk.search.client.model.time.TimeRange> component2();
+    method public com.tomtom.sdk.search.client.model.poi.PopularHour copy(int dayOfWeek, java.util.List<com.tomtom.sdk.search.client.model.time.TimeRange> timeRanges);
+    method public int getDayOfWeek();
+    method public java.util.List<com.tomtom.sdk.search.client.model.time.TimeRange> getTimeRanges();
+    property public final int dayOfWeek;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.time.TimeRange> timeRanges;
+  }
+
+  public final class PriceRange {
+    ctor public PriceRange(double value, String label, double minValue, double maxValue);
+    method public double component1();
+    method public String component2();
+    method public double component3();
+    method public double component4();
+    method public com.tomtom.sdk.search.client.model.poi.PriceRange copy(double value, String label, double minValue, double maxValue);
+    method public String getLabel();
+    method public double getMaxValue();
+    method public double getMinValue();
+    method public double getValue();
+    property public final String label;
+    property public final double maxValue;
+    property public final double minValue;
+    property public final double value;
+  }
+
+  public final class Rating {
+    ctor public Rating(int totalRatings, double value, double minValue, double maxValue);
+    method public int component1();
+    method public double component2();
+    method public double component3();
+    method public double component4();
+    method public com.tomtom.sdk.search.client.model.poi.Rating copy(int totalRatings, double value, double minValue, double maxValue);
+    method public double getMaxValue();
+    method public double getMinValue();
+    method public int getTotalRatings();
+    method public double getValue();
+    property public final double maxValue;
+    property public final double minValue;
+    property public final int totalRatings;
+    property public final double value;
+  }
+
+  public final class RelatedPoi {
+    ctor public RelatedPoi(com.tomtom.sdk.search.client.model.poi.PoiRelationType relationType, String id);
+    method public com.tomtom.sdk.search.client.model.poi.PoiRelationType component1();
+    method public String component2();
+    method public com.tomtom.sdk.search.client.model.poi.RelatedPoi copy(com.tomtom.sdk.search.client.model.poi.PoiRelationType relationType, String id);
+    method public String getId();
+    method public com.tomtom.sdk.search.client.model.poi.PoiRelationType getRelationType();
+    property public final String id;
+    property public final com.tomtom.sdk.search.client.model.poi.PoiRelationType relationType;
+  }
+
+  public enum RequestedPoiRelationType {
+    enum_constant public static final com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType ALL;
+    enum_constant public static final com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType CHILD;
+    enum_constant public static final com.tomtom.sdk.search.client.model.poi.RequestedPoiRelationType PARENT;
+  }
+
+  public final class Review {
+    ctor public Review(String text, java.util.Date? date);
+    method public String component1();
+    method public java.util.Date? component2();
+    method public com.tomtom.sdk.search.client.model.poi.Review copy(String text, java.util.Date? date);
+    method public java.util.Date? getDate();
+    method public String getText();
+    property public final java.util.Date? date;
+    property public final String text;
+  }
+
+  public final class SocialMedia {
+    ctor public SocialMedia(String name, java.net.URL url);
+    method public String component1();
+    method public java.net.URL component2();
+    method public com.tomtom.sdk.search.client.model.poi.SocialMedia copy(String name, java.net.URL url);
+    method public String getName();
+    method public java.net.URL getUrl();
+    property public final String name;
+    property public final java.net.URL url;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.model.result {
+
+  public final class AlongRouteResult {
+    ctor public AlongRouteResult(String type, String id, double score, double distance, optional String info, com.tomtom.sdk.search.client.model.poi.Poi poi, optional java.util.List<com.tomtom.sdk.search.client.model.poi.RelatedPoi>? relatedPois, com.tomtom.sdk.search.client.model.location.Address? address, com.tomtom.sdk.common.location.GeoCoordinate position, optional java.util.List<com.tomtom.sdk.search.common.model.MapCode>? mapCodes, optional com.tomtom.sdk.common.location.GeoBoundingBox? viewport, optional java.util.Set<com.tomtom.sdk.search.client.model.information.EntryPoint>? entryPoints, optional Integer? detourTime, optional Integer? detourOffset, optional com.tomtom.sdk.search.client.model.ev.ChargingPark? chargingPark, optional com.tomtom.sdk.search.client.model.information.AdditionalDataSources? dataSources);
+    method public String component1();
+    method public java.util.List<com.tomtom.sdk.search.common.model.MapCode>? component10();
+    method public com.tomtom.sdk.common.location.GeoBoundingBox? component11();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.information.EntryPoint>? component12();
+    method public Integer? component13();
+    method public Integer? component14();
+    method public com.tomtom.sdk.search.client.model.ev.ChargingPark? component15();
+    method public com.tomtom.sdk.search.client.model.information.AdditionalDataSources? component16();
+    method public String component2();
+    method public double component3();
+    method public double component4();
+    method public String component5();
+    method public com.tomtom.sdk.search.client.model.poi.Poi component6();
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.RelatedPoi>? component7();
+    method public com.tomtom.sdk.search.client.model.location.Address? component8();
+    method public com.tomtom.sdk.common.location.GeoCoordinate component9();
+    method public com.tomtom.sdk.search.client.model.result.AlongRouteResult copy(String type, String id, double score, double distance, String info, com.tomtom.sdk.search.client.model.poi.Poi poi, java.util.List<com.tomtom.sdk.search.client.model.poi.RelatedPoi>? relatedPois, com.tomtom.sdk.search.client.model.location.Address? address, com.tomtom.sdk.common.location.GeoCoordinate position, java.util.List<com.tomtom.sdk.search.common.model.MapCode>? mapCodes, com.tomtom.sdk.common.location.GeoBoundingBox? viewport, java.util.Set<com.tomtom.sdk.search.client.model.information.EntryPoint>? entryPoints, Integer? detourTime, Integer? detourOffset, com.tomtom.sdk.search.client.model.ev.ChargingPark? chargingPark, com.tomtom.sdk.search.client.model.information.AdditionalDataSources? dataSources);
+    method public com.tomtom.sdk.search.client.model.location.Address? getAddress();
+    method public com.tomtom.sdk.search.client.model.ev.ChargingPark? getChargingPark();
+    method public com.tomtom.sdk.search.client.model.information.AdditionalDataSources? getDataSources();
+    method public Integer? getDetourOffset();
+    method public Integer? getDetourTime();
+    method public double getDistance();
+    method public java.util.Set<com.tomtom.sdk.search.client.model.information.EntryPoint>? getEntryPoints();
+    method public String getId();
+    method public String getInfo();
+    method public java.util.List<com.tomtom.sdk.search.common.model.MapCode>? getMapCodes();
+    method public com.tomtom.sdk.search.client.model.poi.Poi getPoi();
+    method public com.tomtom.sdk.common.location.GeoCoordinate getPosition();
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.RelatedPoi>? getRelatedPois();
+    method public double getScore();
+    method public String getType();
+    method public com.tomtom.sdk.common.location.GeoBoundingBox? getViewport();
+    property public final com.tomtom.sdk.search.client.model.location.Address? address;
+    property public final com.tomtom.sdk.search.client.model.ev.ChargingPark? chargingPark;
+    property public final com.tomtom.sdk.search.client.model.information.AdditionalDataSources? dataSources;
+    property public final Integer? detourOffset;
+    property public final Integer? detourTime;
+    property public final double distance;
+    property public final java.util.Set<com.tomtom.sdk.search.client.model.information.EntryPoint>? entryPoints;
+    property public final String id;
+    property public final String info;
+    property public final java.util.List<com.tomtom.sdk.search.common.model.MapCode>? mapCodes;
+    property public final com.tomtom.sdk.search.client.model.poi.Poi poi;
+    property public final com.tomtom.sdk.common.location.GeoCoordinate position;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.poi.RelatedPoi>? relatedPois;
+    property public final double score;
+    property public final String type;
+    property public final com.tomtom.sdk.common.location.GeoBoundingBox? viewport;
+  }
+
+  public final class AutocompleteResults {
+    ctor public AutocompleteResults(optional java.util.List<com.tomtom.sdk.search.client.model.result.AutocompleteSegment> segments);
+    method public java.util.List<com.tomtom.sdk.search.client.model.result.AutocompleteSegment> component1();
+    method public com.tomtom.sdk.search.client.model.result.AutocompleteResults copy(java.util.List<com.tomtom.sdk.search.client.model.result.AutocompleteSegment> segments);
+    method public java.util.List<com.tomtom.sdk.search.client.model.result.AutocompleteSegment> getSegments();
+    property public final java.util.List<com.tomtom.sdk.search.client.model.result.AutocompleteSegment> segments;
+  }
+
+  public final class AutocompleteSegment {
+    ctor public AutocompleteSegment(String type, String value, com.tomtom.sdk.search.client.model.match.Matches matches, optional String? id, optional String? matchedAlternativeName);
+    method public String component1();
+    method public String component2();
+    method public com.tomtom.sdk.search.client.model.match.Matches component3();
+    method public String? component4();
+    method public String? component5();
+    method public com.tomtom.sdk.search.client.model.result.AutocompleteSegment copy(String type, String value, com.tomtom.sdk.search.client.model.match.Matches matches, String? id, String? matchedAlternativeName);
+    method public String? getId();
+    method public String? getMatchedAlternativeName();
+    method public com.tomtom.sdk.search.client.model.match.Matches getMatches();
+    method public String getType();
+    method public String getValue();
+    property public final String? id;
+    property public final String? matchedAlternativeName;
+    property public final com.tomtom.sdk.search.client.model.match.Matches matches;
+    property public final String type;
+    property public final String value;
+  }
+
+  public final class SearchResult {
+    ctor public SearchResult(String type, String id, double score, double distance, optional String info, com.tomtom.sdk.search.client.model.information.EntityType? entityType, com.tomtom.sdk.search.client.model.poi.Poi? poi, optional java.util.List<com.tomtom.sdk.search.client.model.poi.RelatedPoi> relatedPois, com.tomtom.sdk.search.client.model.location.Address? address, com.tomtom.sdk.common.location.GeoCoordinate position, optional java.util.List<com.tomtom.sdk.search.common.model.MapCode> mapCodes, com.tomtom.sdk.common.location.GeoBoundingBox? viewport, com.tomtom.sdk.common.location.GeoBoundingBox? boundingBox, optional java.util.List<com.tomtom.sdk.search.client.model.information.EntryPoint> entryPoints, com.tomtom.sdk.search.client.model.location.AddressRanges? addressRanges, com.tomtom.sdk.search.client.model.ev.ChargingPark? chargingPark, com.tomtom.sdk.search.client.model.information.AdditionalDataSources? dataSources);
+    method public String component1();
+    method public com.tomtom.sdk.common.location.GeoCoordinate component10();
+    method public java.util.List<com.tomtom.sdk.search.common.model.MapCode> component11();
+    method public com.tomtom.sdk.common.location.GeoBoundingBox? component12();
+    method public com.tomtom.sdk.common.location.GeoBoundingBox? component13();
+    method public java.util.List<com.tomtom.sdk.search.client.model.information.EntryPoint> component14();
+    method public com.tomtom.sdk.search.client.model.location.AddressRanges? component15();
+    method public com.tomtom.sdk.search.client.model.ev.ChargingPark? component16();
+    method public com.tomtom.sdk.search.client.model.information.AdditionalDataSources? component17();
+    method public String component2();
+    method public double component3();
+    method public double component4();
+    method public String component5();
+    method public com.tomtom.sdk.search.client.model.information.EntityType? component6();
+    method public com.tomtom.sdk.search.client.model.poi.Poi? component7();
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.RelatedPoi> component8();
+    method public com.tomtom.sdk.search.client.model.location.Address? component9();
+    method public com.tomtom.sdk.search.client.model.result.SearchResult copy(String type, String id, double score, double distance, String info, com.tomtom.sdk.search.client.model.information.EntityType? entityType, com.tomtom.sdk.search.client.model.poi.Poi? poi, java.util.List<com.tomtom.sdk.search.client.model.poi.RelatedPoi> relatedPois, com.tomtom.sdk.search.client.model.location.Address? address, com.tomtom.sdk.common.location.GeoCoordinate position, java.util.List<com.tomtom.sdk.search.common.model.MapCode> mapCodes, com.tomtom.sdk.common.location.GeoBoundingBox? viewport, com.tomtom.sdk.common.location.GeoBoundingBox? boundingBox, java.util.List<com.tomtom.sdk.search.client.model.information.EntryPoint> entryPoints, com.tomtom.sdk.search.client.model.location.AddressRanges? addressRanges, com.tomtom.sdk.search.client.model.ev.ChargingPark? chargingPark, com.tomtom.sdk.search.client.model.information.AdditionalDataSources? dataSources);
+    method public com.tomtom.sdk.search.client.model.location.Address? getAddress();
+    method public com.tomtom.sdk.search.client.model.location.AddressRanges? getAddressRanges();
+    method public com.tomtom.sdk.common.location.GeoBoundingBox? getBoundingBox();
+    method public com.tomtom.sdk.search.client.model.ev.ChargingPark? getChargingPark();
+    method public com.tomtom.sdk.search.client.model.information.AdditionalDataSources? getDataSources();
+    method public double getDistance();
+    method public com.tomtom.sdk.search.client.model.information.EntityType? getEntityType();
+    method public java.util.List<com.tomtom.sdk.search.client.model.information.EntryPoint> getEntryPoints();
+    method public String getId();
+    method public String getInfo();
+    method public java.util.List<com.tomtom.sdk.search.common.model.MapCode> getMapCodes();
+    method public com.tomtom.sdk.search.client.model.poi.Poi? getPoi();
+    method public com.tomtom.sdk.common.location.GeoCoordinate getPosition();
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.RelatedPoi> getRelatedPois();
+    method public double getScore();
+    method public String getType();
+    method public com.tomtom.sdk.common.location.GeoBoundingBox? getViewport();
+    property public final com.tomtom.sdk.search.client.model.location.Address? address;
+    property public final com.tomtom.sdk.search.client.model.location.AddressRanges? addressRanges;
+    property public final com.tomtom.sdk.common.location.GeoBoundingBox? boundingBox;
+    property public final com.tomtom.sdk.search.client.model.ev.ChargingPark? chargingPark;
+    property public final com.tomtom.sdk.search.client.model.information.AdditionalDataSources? dataSources;
+    property public final double distance;
+    property public final com.tomtom.sdk.search.client.model.information.EntityType? entityType;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.information.EntryPoint> entryPoints;
+    property public final String id;
+    property public final String info;
+    property public final java.util.List<com.tomtom.sdk.search.common.model.MapCode> mapCodes;
+    property public final com.tomtom.sdk.search.client.model.poi.Poi? poi;
+    property public final com.tomtom.sdk.common.location.GeoCoordinate position;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.poi.RelatedPoi> relatedPois;
+    property public final double score;
+    property public final String type;
+    property public final com.tomtom.sdk.common.location.GeoBoundingBox? viewport;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.model.sorting {
+
+  public enum SortBy {
+    enum_constant public static final com.tomtom.sdk.search.client.model.sorting.SortBy DETOUR_DISTANCE;
+    enum_constant public static final com.tomtom.sdk.search.client.model.sorting.SortBy DETOUR_OFFSET;
+    enum_constant public static final com.tomtom.sdk.search.client.model.sorting.SortBy DETOUR_TIME;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.model.summary {
+
+  public final class AlongRouteSummary {
+    ctor public AlongRouteSummary(String query, String queryType, int queryTime, int numResults, int offset, int totalResults, int fuzzyLevel);
+    method public String component1();
+    method public String component2();
+    method public int component3();
+    method public int component4();
+    method public int component5();
+    method public int component6();
+    method public int component7();
+    method public com.tomtom.sdk.search.client.model.summary.AlongRouteSummary copy(String query, String queryType, int queryTime, int numResults, int offset, int totalResults, int fuzzyLevel);
+    method public int getFuzzyLevel();
+    method public int getNumResults();
+    method public int getOffset();
+    method public String getQuery();
+    method public int getQueryTime();
+    method public String getQueryType();
+    method public int getTotalResults();
+    property public final int fuzzyLevel;
+    property public final int numResults;
+    property public final int offset;
+    property public final String query;
+    property public final int queryTime;
+    property public final String queryType;
+    property public final int totalResults;
+  }
+
+  public final class AutocompleteSummary {
+    ctor public AutocompleteSummary(String inputQuery, com.tomtom.sdk.common.location.GeoBias? geoBias);
+    method public String component1();
+    method public com.tomtom.sdk.common.location.GeoBias? component2();
+    method public com.tomtom.sdk.search.client.model.summary.AutocompleteSummary copy(String inputQuery, com.tomtom.sdk.common.location.GeoBias? geoBias);
+    method public com.tomtom.sdk.common.location.GeoBias? getGeoBias();
+    method public String getInputQuery();
+    property public final com.tomtom.sdk.common.location.GeoBias? geoBias;
+    property public final String inputQuery;
+  }
+
+  public final class SearchRequestSummary {
+    ctor public SearchRequestSummary(String query, String queryType, int queryTime, int numResults, int offset, int totalResults, int fuzzyLevel, com.tomtom.sdk.common.location.GeoCoordinate? geoBias);
+    method public String component1();
+    method public String component2();
+    method public int component3();
+    method public int component4();
+    method public int component5();
+    method public int component6();
+    method public int component7();
+    method public com.tomtom.sdk.common.location.GeoCoordinate? component8();
+    method public com.tomtom.sdk.search.client.model.summary.SearchRequestSummary copy(String query, String queryType, int queryTime, int numResults, int offset, int totalResults, int fuzzyLevel, com.tomtom.sdk.common.location.GeoCoordinate? geoBias);
+    method public int getFuzzyLevel();
+    method public com.tomtom.sdk.common.location.GeoCoordinate? getGeoBias();
+    method public int getNumResults();
+    method public int getOffset();
+    method public String getQuery();
+    method public int getQueryTime();
+    method public String getQueryType();
+    method public int getTotalResults();
+    property public final int fuzzyLevel;
+    property public final com.tomtom.sdk.common.location.GeoCoordinate? geoBias;
+    property public final int numResults;
+    property public final int offset;
+    property public final String query;
+    property public final int queryTime;
+    property public final String queryType;
+    property public final int totalResults;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.model.time {
+
+  public final class HourTimeRange {
+    method public com.tomtom.sdk.search.client.model.time.Time component1();
+    method public com.tomtom.sdk.search.client.model.time.Time component2();
+    method public com.tomtom.sdk.search.client.model.time.HourTimeRange copy(com.tomtom.sdk.search.client.model.time.Time startTime, com.tomtom.sdk.search.client.model.time.Time endTime);
+    method public com.tomtom.sdk.search.client.model.time.Time getEndTime();
+    method public com.tomtom.sdk.search.client.model.time.Time getStartTime();
+    property public final com.tomtom.sdk.search.client.model.time.Time endTime;
+    property public final com.tomtom.sdk.search.client.model.time.Time startTime;
+  }
+
+  public final class OpeningHours {
+    ctor public OpeningHours(int mode, java.util.List<com.tomtom.sdk.search.client.model.time.TimeRange> timeRanges);
+    method public int component1-ZYkt3DA();
+    method public java.util.List<com.tomtom.sdk.search.client.model.time.TimeRange> component2();
+    method public com.tomtom.sdk.search.client.model.time.OpeningHours copy-QK_diuo(int mode, java.util.List<com.tomtom.sdk.search.client.model.time.TimeRange> timeRanges);
+    method public int getMode();
+    method public java.util.List<com.tomtom.sdk.search.client.model.time.TimeRange> getTimeRanges();
+    property public final int mode;
+    property public final java.util.List<com.tomtom.sdk.search.client.model.time.TimeRange> timeRanges;
+  }
+
+  @kotlin.jvm.JvmInline public final value class OpeningHoursMode {
+    method public int getMode();
+    property public final int mode;
+    field public static final com.tomtom.sdk.search.client.model.time.OpeningHoursMode.Companion Companion;
+  }
+
+  public static final class OpeningHoursMode.Companion {
+    method public int getNextSevenDays();
+    property public final int NextSevenDays;
+  }
+
+  public final class Time {
+    method public int component1();
+    method public int component2();
+    method public com.tomtom.sdk.search.client.model.time.Time copy(int hour, int minutes);
+    method public int getHour();
+    method public int getMinutes();
+    property public final int hour;
+    property public final int minutes;
+  }
+
+  public final class TimeRange {
+    ctor public TimeRange(java.util.Date startTime, java.util.Date endTime);
+    method public java.util.Date component1();
+    method public java.util.Date component2();
+    method public com.tomtom.sdk.search.client.model.time.TimeRange copy(java.util.Date startTime, java.util.Date endTime);
+    method public java.util.Date getEndTime();
+    method public java.util.Date getStartTime();
+    property public final java.util.Date endTime;
+    property public final java.util.Date startTime;
+  }
+
+  public final class TimeZone {
+    ctor public TimeZone(String ianaId);
+    method public String component1();
+    method public com.tomtom.sdk.search.client.model.time.TimeZone copy(String ianaId);
+    method public String getIanaId();
+    property public final String ianaId;
+  }
+
+  public enum TimeZoneType {
+    enum_constant public static final com.tomtom.sdk.search.client.model.time.TimeZoneType IANA;
+  }
+
+}
+
+package com.tomtom.sdk.search.client.poicategories {
+
+  public interface PoiCategoriesSearchCallback extends com.tomtom.sdk.common.Callback<com.tomtom.sdk.search.client.poicategories.PoiCategoriesSearchResponse,com.tomtom.sdk.search.client.poicategories.PoiCategoriesSearchError> {
+  }
+
+  public final class PoiCategoriesSearchError extends com.tomtom.sdk.search.client.SearchError {
+    ctor public PoiCategoriesSearchError(optional String message);
+  }
+
+  public final class PoiCategoriesSearchOptions {
+    ctor public PoiCategoriesSearchOptions(optional String? language);
+    ctor public PoiCategoriesSearchOptions();
+    method public String? component1();
+    method public com.tomtom.sdk.search.client.poicategories.PoiCategoriesSearchOptions copy(String? language);
+    method public String? getLanguage();
+    property public final String? language;
+  }
+
+  public final class PoiCategoriesSearchResponse {
+    ctor public PoiCategoriesSearchResponse(java.util.List<com.tomtom.sdk.search.client.model.poi.Category> categories);
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.Category> component1();
+    method public com.tomtom.sdk.search.client.poicategories.PoiCategoriesSearchResponse copy(java.util.List<com.tomtom.sdk.search.client.model.poi.Category> categories);
+    method public java.util.List<com.tomtom.sdk.search.client.model.poi.Category> getCategories();
+    property public final java.util.List<com.tomtom.sdk.search.client.model.poi.Category> categories;
+  }
+
+}
+

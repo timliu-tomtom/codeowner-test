@@ -1,0 +1,37 @@
+// Signature format: 4.0
+package com.tomtom.sdk.search.common.model {
+
+  public final class MapCode {
+    ctor public MapCode(int type, String fullMapCode, optional String? territory, optional String? code);
+    method public int component1-xOXO1HU();
+    method public String component2();
+    method public String? component3();
+    method public String? component4();
+    method public com.tomtom.sdk.search.common.model.MapCode copy-Z4wMIkQ(int type, String fullMapCode, String? territory, String? code);
+    method public String? getCode();
+    method public String getFullMapCode();
+    method public String? getTerritory();
+    method public int getType();
+    property public final String? code;
+    property public final String fullMapCode;
+    property public final String? territory;
+    property public final int type;
+  }
+
+  @kotlin.jvm.JvmInline public final value class MapCodeType {
+    method public int getType();
+    property public final int type;
+    field public static final com.tomtom.sdk.search.common.model.MapCodeType.Companion Companion;
+  }
+
+  public static final class MapCodeType.Companion {
+    method public int getAlternative();
+    method public int getInternational();
+    method public int getLocal();
+    property public final int Alternative;
+    property public final int International;
+    property public final int Local;
+  }
+
+}
+

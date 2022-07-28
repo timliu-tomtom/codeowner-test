@@ -1,0 +1,210 @@
+// Signature format: 4.0
+package com.tomtom.sdk.search.reversegeocoding {
+
+  public interface ReverseGeocoderApi extends com.tomtom.sdk.common.Disposable {
+    method public com.tomtom.sdk.common.Result<com.tomtom.sdk.search.reversegeocoding.ReverseGeocoderResponse,com.tomtom.sdk.search.reversegeocoding.ReverseGeocoderError> reverseGeocode(com.tomtom.sdk.search.reversegeocoding.ReverseGeocoderOptions reverseGeocoderOptions);
+    method public com.tomtom.sdk.common.Cancellable reverseGeocode(com.tomtom.sdk.search.reversegeocoding.ReverseGeocoderOptions reverseGeocoderOptions, com.tomtom.sdk.search.reversegeocoding.ReverseGeocoderCallback reverseGeocoderCallback);
+  }
+
+  public interface ReverseGeocoderCallback extends com.tomtom.sdk.common.Callback<com.tomtom.sdk.search.reversegeocoding.ReverseGeocoderResponse,com.tomtom.sdk.search.reversegeocoding.ReverseGeocoderError> {
+  }
+
+  public final class ReverseGeocoderError {
+    ctor public ReverseGeocoderError(optional String message);
+    method public String getMessage();
+    property public final String message;
+  }
+
+  public final class ReverseGeocoderOptions {
+    ctor public ReverseGeocoderOptions(com.tomtom.sdk.common.location.GeoCoordinate position, optional @FloatRange(from=0.0, to=360.0) Float? heading, optional @IntRange(from=1, to=com.tomtom.sdk.search.reversegeocoding.ReverseGeocoderOptions.MAX_RADIUS_IN_METERS) int radiusInMeters, optional java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.RoadUse> roadUses, optional java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.EntityType> entityTypes, optional String language, optional String geoPoliticalView, optional java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodeTypes, optional boolean preferClosestAccurateAddress, optional boolean fetchGeometry);
+    method public com.tomtom.sdk.common.location.GeoCoordinate component1();
+    method public boolean component10();
+    method public Float? component2();
+    method public int component3();
+    method public java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.RoadUse> component4();
+    method public java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.EntityType> component5();
+    method public String component6();
+    method public String component7();
+    method public java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> component8();
+    method public boolean component9();
+    method public com.tomtom.sdk.search.reversegeocoding.ReverseGeocoderOptions copy(com.tomtom.sdk.common.location.GeoCoordinate position, @FloatRange(from=0.0, to=360.0) Float? heading, @IntRange(from=1L, to=5000L) int radiusInMeters, java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.RoadUse> roadUses, java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.EntityType> entityTypes, String language, String geoPoliticalView, java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodeTypes, boolean preferClosestAccurateAddress, boolean fetchGeometry);
+    method public java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.EntityType> getEntityTypes();
+    method public boolean getFetchGeometry();
+    method public String getGeoPoliticalView();
+    method public Float? getHeading();
+    method public String getLanguage();
+    method public java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> getMapCodeTypes();
+    method public com.tomtom.sdk.common.location.GeoCoordinate getPosition();
+    method public boolean getPreferClosestAccurateAddress();
+    method public int getRadiusInMeters();
+    method public java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.RoadUse> getRoadUses();
+    property public final java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.EntityType> entityTypes;
+    property public final boolean fetchGeometry;
+    property public final String geoPoliticalView;
+    property public final Float? heading;
+    property public final String language;
+    property public final java.util.Set<com.tomtom.sdk.search.common.model.MapCodeType> mapCodeTypes;
+    property public final com.tomtom.sdk.common.location.GeoCoordinate position;
+    property public final boolean preferClosestAccurateAddress;
+    property public final int radiusInMeters;
+    property public final java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.RoadUse> roadUses;
+  }
+
+  public final class ReverseGeocoderResponse {
+    ctor public ReverseGeocoderResponse(com.tomtom.sdk.search.reversegeocoding.model.summary.Summary summary, java.util.List<com.tomtom.sdk.search.reversegeocoding.model.location.PlaceMatch> places);
+    method public com.tomtom.sdk.search.reversegeocoding.model.summary.Summary component1();
+    method public java.util.List<com.tomtom.sdk.search.reversegeocoding.model.location.PlaceMatch> component2();
+    method public com.tomtom.sdk.search.reversegeocoding.ReverseGeocoderResponse copy(com.tomtom.sdk.search.reversegeocoding.model.summary.Summary summary, java.util.List<com.tomtom.sdk.search.reversegeocoding.model.location.PlaceMatch> places);
+    method public java.util.List<com.tomtom.sdk.search.reversegeocoding.model.location.PlaceMatch> getPlaces();
+    method public com.tomtom.sdk.search.reversegeocoding.model.summary.Summary getSummary();
+    property public final java.util.List<com.tomtom.sdk.search.reversegeocoding.model.location.PlaceMatch> places;
+    property public final com.tomtom.sdk.search.reversegeocoding.model.summary.Summary summary;
+  }
+
+}
+
+package com.tomtom.sdk.search.reversegeocoding.model.information {
+
+  @kotlin.jvm.JvmInline public final value class EntityType {
+    method public int getValue();
+    property public final int value;
+    field public static final com.tomtom.sdk.search.reversegeocoding.model.information.EntityType.Companion Companion;
+  }
+
+  public static final class EntityType.Companion {
+    method public int getCountry();
+    method public int getCountrySecondarySubdivision();
+    method public int getCountrySubdivision();
+    method public int getCountryTertiarySubdivision();
+    method public int getMunicipality();
+    method public int getMunicipalitySubdivision();
+    method public int getNeighborhood();
+    method public int getPostalCodeArea();
+    property public final int Country;
+    property public final int CountrySecondarySubdivision;
+    property public final int CountrySubdivision;
+    property public final int CountryTertiarySubdivision;
+    property public final int Municipality;
+    property public final int MunicipalitySubdivision;
+    property public final int Neighborhood;
+    property public final int PostalCodeArea;
+  }
+
+  public final class GeoGeometry {
+    ctor public GeoGeometry(int geometryType, java.util.List<com.tomtom.sdk.common.location.GeoBounds> geometries);
+    method public int component1-DH1hFQE();
+    method public java.util.List<com.tomtom.sdk.common.location.GeoBounds> component2();
+    method public com.tomtom.sdk.search.reversegeocoding.model.information.GeoGeometry copy-0FqL490(int geometryType, java.util.List<com.tomtom.sdk.common.location.GeoBounds> geometries);
+    method public java.util.List<com.tomtom.sdk.common.location.GeoBounds> getGeometries();
+    method public int getGeometryType();
+    property public final java.util.List<com.tomtom.sdk.common.location.GeoBounds> geometries;
+    property public final int geometryType;
+  }
+
+  @kotlin.jvm.JvmInline public final value class GeometryType {
+    method public int getType();
+    property public final int type;
+    field public static final com.tomtom.sdk.search.reversegeocoding.model.information.GeometryType.Companion Companion;
+  }
+
+  public static final class GeometryType.Companion {
+    method public int getLineString();
+    method public int getMultiLineString();
+    method public int getMultiPoint();
+    method public int getMultiPolygon();
+    method public int getPoint();
+    method public int getPolygon();
+    property public final int LineString;
+    property public final int MultiLineString;
+    property public final int MultiPoint;
+    property public final int MultiPolygon;
+    property public final int Point;
+    property public final int Polygon;
+  }
+
+  @kotlin.jvm.JvmInline public final value class MatchType {
+    method public int getType();
+    property public final int type;
+    field public static final com.tomtom.sdk.search.reversegeocoding.model.information.MatchType.Companion Companion;
+  }
+
+  public static final class MatchType.Companion {
+    method public int getAddressPoint();
+    method public int getHouseNumberRange();
+    method public int getStreet();
+    property public final int AddressPoint;
+    property public final int HouseNumberRange;
+    property public final int Street;
+  }
+
+  @kotlin.jvm.JvmInline public final value class RoadUse {
+    method public int getUse();
+    property public final int use;
+    field public static final com.tomtom.sdk.search.reversegeocoding.model.information.RoadUse.Companion Companion;
+  }
+
+  public static final class RoadUse.Companion {
+    method public int getArterial();
+    method public int getLimitedAccess();
+    method public int getLocalStreet();
+    method public int getRamp();
+    method public int getRotary();
+    method public int getTerminal();
+    property public final int Arterial;
+    property public final int LimitedAccess;
+    property public final int LocalStreet;
+    property public final int Ramp;
+    property public final int Rotary;
+    property public final int Terminal;
+  }
+
+}
+
+package com.tomtom.sdk.search.reversegeocoding.model.location {
+
+  public final class PlaceMatch {
+    ctor public PlaceMatch(com.tomtom.sdk.common.location.Place place, com.tomtom.sdk.common.location.GeoCoordinate navigablePosition, optional java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.RoadUse> roadUse, optional com.tomtom.sdk.search.reversegeocoding.model.information.MatchType? matchType, optional java.util.Set<com.tomtom.sdk.search.common.model.MapCode> mapCodes, optional com.tomtom.sdk.search.reversegeocoding.model.information.GeoGeometry? geometry, optional java.util.List<java.lang.String> routeNumbers, optional String speedLimit, optional com.tomtom.sdk.common.location.GeoBoundingBox? boundingBox);
+    method public com.tomtom.sdk.common.location.Place component1();
+    method public com.tomtom.sdk.common.location.GeoCoordinate component2();
+    method public java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.RoadUse> component3();
+    method public com.tomtom.sdk.search.reversegeocoding.model.information.MatchType? component4-GZMrmEg();
+    method public java.util.Set<com.tomtom.sdk.search.common.model.MapCode> component5();
+    method public com.tomtom.sdk.search.reversegeocoding.model.information.GeoGeometry? component6();
+    method public java.util.List<java.lang.String> component7();
+    method public String component8();
+    method public com.tomtom.sdk.common.location.GeoBoundingBox? component9();
+    method public com.tomtom.sdk.search.reversegeocoding.model.location.PlaceMatch copy-AAV0suA(com.tomtom.sdk.common.location.Place place, com.tomtom.sdk.common.location.GeoCoordinate navigablePosition, java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.RoadUse> roadUse, com.tomtom.sdk.search.reversegeocoding.model.information.MatchType? matchType, java.util.Set<com.tomtom.sdk.search.common.model.MapCode> mapCodes, com.tomtom.sdk.search.reversegeocoding.model.information.GeoGeometry? geometry, java.util.List<java.lang.String> routeNumbers, String speedLimit, com.tomtom.sdk.common.location.GeoBoundingBox? boundingBox);
+    method public com.tomtom.sdk.common.location.GeoBoundingBox? getBoundingBox();
+    method public com.tomtom.sdk.search.reversegeocoding.model.information.GeoGeometry? getGeometry();
+    method public java.util.Set<com.tomtom.sdk.search.common.model.MapCode> getMapCodes();
+    method public com.tomtom.sdk.search.reversegeocoding.model.information.MatchType? getMatchType();
+    method public com.tomtom.sdk.common.location.GeoCoordinate getNavigablePosition();
+    method public com.tomtom.sdk.common.location.Place getPlace();
+    method public java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.RoadUse> getRoadUse();
+    method public java.util.List<java.lang.String> getRouteNumbers();
+    method public String getSpeedLimit();
+    property public final com.tomtom.sdk.common.location.GeoBoundingBox? boundingBox;
+    property public final com.tomtom.sdk.search.reversegeocoding.model.information.GeoGeometry? geometry;
+    property public final java.util.Set<com.tomtom.sdk.search.common.model.MapCode> mapCodes;
+    property public final com.tomtom.sdk.search.reversegeocoding.model.information.MatchType? matchType;
+    property public final com.tomtom.sdk.common.location.GeoCoordinate navigablePosition;
+    property public final com.tomtom.sdk.common.location.Place place;
+    property public final java.util.Set<com.tomtom.sdk.search.reversegeocoding.model.information.RoadUse> roadUse;
+    property public final java.util.List<java.lang.String> routeNumbers;
+    property public final String speedLimit;
+  }
+
+}
+
+package com.tomtom.sdk.search.reversegeocoding.model.summary {
+
+  public final class Summary {
+    ctor public Summary(com.tomtom.sdk.common.time.Duration queryTime);
+    method public com.tomtom.sdk.common.time.Duration component1();
+    method public com.tomtom.sdk.search.reversegeocoding.model.summary.Summary copy(com.tomtom.sdk.common.time.Duration queryTime);
+    method public com.tomtom.sdk.common.time.Duration getQueryTime();
+    property public final com.tomtom.sdk.common.time.Duration queryTime;
+  }
+
+}
+

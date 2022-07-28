@@ -1,0 +1,23 @@
+// Signature format: 4.0
+package com.tomtom.sdk.search.structuredsearch {
+
+  public final class BadInputError {
+    ctor public BadInputError(optional String message);
+    method public final String getMessage();
+  }
+
+  @kotlin.RequiresOptIn(message="This is an experimental API. It may be changed or removed at any time without notice." + " Use of this API is strongly discouraged.", level=kotlin.RequiresOptIn.Level.ERROR) public @interface ExperimentalStructuredSearchApi {
+  }
+
+  public final class NoDataError {
+    ctor public NoDataError(optional String message);
+    method public final String getMessage();
+  }
+
+  public final class UnknownError {
+    ctor public UnknownError(optional String message);
+    method public final String getMessage();
+  }
+
+}
+
