@@ -1,7 +1,9 @@
 
-/search/ !/search/structured-search* @RobertWu-TomTom
-/search/**/api/current.txt /search/structured-search*/**/api/current.txt @RobertWu-TomTom
+/search/ @RobertWu-TomTom
+/search/**/api/current.txt @RobertWu-TomTom
 
+@RobertWu-TomTom
+!/search/structured-search*
 
 /search/structured-search* @timliu-tomtom
 /search/structured-search*/**/api/current.txt @timliu-tomtom
