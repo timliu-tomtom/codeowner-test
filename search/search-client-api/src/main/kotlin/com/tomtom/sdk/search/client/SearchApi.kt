@@ -45,7 +45,7 @@ import com.tomtom.sdk.search.client.poicategories.PoiCategoriesSearchResponse
 
 /**
  * Interface of the search API.
- *
+ * Hello
  * Important: This is a Public Preview API. It may be changed or removed at any time.
  */
 @SuppressWarnings("TooManyFunctions")
