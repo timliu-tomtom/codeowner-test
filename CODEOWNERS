@@ -4,5 +4,4 @@
 
 
 /search/structured-search* @timliu-tomtom
-/search/structured-search*/**/api/current.txt
-
+/search/structured-search*/**/api/current.txt @timliu-tomtom
